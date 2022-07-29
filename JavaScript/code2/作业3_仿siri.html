@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>仿siri</title>
+</head>
+<body>
+    <script>
+        // 1.提示用户输入
+        let userIn = prompt('您好，我是您的私人助力 siri\n 请输入编号或者《关键词》选择功能，按q退出\n 1.计算《总和》\n 2.获取《时间》\n 3.讲个《笑话》\n 4.来个《抽奖》');
+        if (userIn === 'q') {
+            console.log('退出！');
+        } else {
+            if (userIn === '1' || userIn === '总和') {
+                console.log('计算总和');
+            } else if (userIn === '2' || userIn === '时间') {
+                console.log('获取时间');
+            } else if (userIn === '3' || userIn === '笑话') {
+                console.log('讲个笑话');
+            } else if (userIn === '4' || userIn === '抽奖') {
+                console.log('来个抽奖');
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #students {
+            margin: 10px auto;
+            width: 500px;
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        #students th,
+        #students td {
+            border: 1px solid black;
+        }
+
+        #students th {
+            height: 40px;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <table id="students">
+        <tr>
+            <th>序号</th>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>科目</th>
+            <th>成绩</th>
+        </tr>
+        <tr>
+            <td>01</td>
+            <td>安琪拉</td>
+            <td>25</td>
+            <td>语文</td>
+            <td>100</td>
+        </tr>
+        <tr>
+            <td>02</td>
+            <td>亚瑟</td>
+            <td>28</td>
+            <td>数学</td>
+            <td>60</td>
+        </tr>
+        <tr>
+            <td>03</td>
+            <td>蔡文姬</td>
+            <td>30</td>
+            <td>英语</td>
+            <td>70</td>
+        </tr>
+        <tr>
+            <td>04</td>
+            <td>阿珂</td>
+            <td>20</td>
+            <td>物理</td>
+            <td>80</td>
+        </tr>
+        <tr>
+            <td>05</td>
+            <td>百里守约</td>
+            <td>21</td>
+            <td>化学</td>
+            <td>90</td>
+        </tr>
+    </table>
+
+    <script src="./jquery/jquery-3.6.0.js"></script>
+    <script>
+        // $('#students tr:even').css('background-color', '#cfdfff');
+        // $('#students tr:odd').css('background-color', '#efefff');
+        // $('#students tr:eq(0)').css('background-color', 'lightgray');
+
+
+        $('#students tr:eq(0)').css('background-color', 'lightgray');
+        $('#students tr:gt(0):even').css('background-color', '#cfdfff');
+        $('#students tr:gt(0):odd').css('background-color', '#efefff');
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动画</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .box {
+            position: absolute;
+            left: 50px;
+            top: 0;
+            width: 200px;
+            height: 200px;
+            background-color: aquamarine;
+        }
+
+        .item1 {
+            top: 50px;
+        }
+
+        .item2 {
+            top: 280px;
+        }
+
+        .item3 {
+            top: 500px;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">按钮</button>
+    <div class="box item1"></div>
+    <div class="box item2"></div>
+    <div class="box item3"></div>
+    <script>
+        'use strict';
+        const btn = document.querySelector('#btn');
+        const box = document.querySelector('.box');
+        const item1 = document.querySelector('.item1');
+        const item2 = document.querySelector('.item2');
+        const item3 = document.querySelector('.item3');
+
+        btn.onclick = function () {
+            animate(item1, 400);
+            animate(item2, 600);
+            animate(item3, 800);
+        }
+
+        function animate(e, target) {
+            if (e.timerId) return;
+            // 获取box的坐标 offsetLeft 是只读属性
+            e.timerId = setInterval(function () {
+                e.style.left = e.offsetLeft + 5 + 'px'
+
+                if (e.offsetLeft >= target) {
+                    e.style.left = target + 'px'
+                    clearInterval(e.timerId)
+                    e.timerId = null;
+                }
+            }, 16.7)
+        }
+    </script>
+</body>
+</html>

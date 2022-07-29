@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slick</title>
+    <link rel="stylesheet" href="./plugins/slick/slick.css">
+    <link rel="stylesheet" href="./plugins/slick/slick-theme.css">
+    <style>
+        .slider {
+            width: 500px;
+            height: 200px;
+            background-color: brown;
+        }
+
+        .slick-prev {
+            left: 5px;
+        }
+
+        .slick-next {
+            right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slider">
+        <div>轮播元素一</div>
+        <div>轮播元素二</div>
+        <div>轮播元素三</div>
+    </div>
+    <script src="./jquery/jquery-3.6.0.js"></script>
+    <script src="./plugins/slick/slick.js"></script>
+    <script>
+        $('.slider').slick({
+            autoplay: true,
+            arrows: true,
+            dots: true,
+        });
+    </script>
+</body>
+</html>

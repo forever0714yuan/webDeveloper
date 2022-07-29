@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text">
+    <script>
+        const txt = document.querySelector('input');
+        // 让文本框只能输入数字
+        txt.onkeydown = function (e) {
+            if ((e.keyCode >= 48 && e.keyCode <= 57) || (e.keyCode >= 96 && e.keyCode <= 105)) {
+            } else {
+                // 按键的默认行为，按下的键会输入到文本框内
+                // 取消默认行为，按下的键不会输入到文本框中
+                // 取消默认行为的执行
+                e.preventDefault()
+                console.log('111');
+            }
+        }
+    </script>
+</body>
+</html>

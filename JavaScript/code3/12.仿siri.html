@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>仿siri</title>
+</head>
+<body>
+    <script>
+        // 需求 让程序一直执行，直到点击取消或者按q
+        // 1. 循环条件
+        let condition = true;
+        while (condition) {
+            // 2.提示用户输入
+            let userIn = prompt('您好，我是您的私人助力 siri\n 请输入编号或者《关键词》选择功能，按q退出\n 1.计算《总和》\n 2.获取《时间》\n 3.讲个《笑话》\n 4.来个《抽奖》');
+            switch (userIn) {
+                case '1':
+                case '总和':
+                    alert('计算总和！');
+                    break;
+                case '2':
+                case '时间':
+                    alert('您获取了时间！');
+                    break;
+                case '3':
+                case '笑话':
+                    alert('您讲咯笑话！');
+                    break;
+                case '4':
+                case '抽奖':
+                    alert('您进行了抽奖！');
+                    break;
+                case 'q':
+                case null:
+                    // 取消或者q的时候将循环条件改变
+                    condition = false;
+                    alert('程序已退出！');
+                    break;
+                default:
+                    alert('您输入错误了！');
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>

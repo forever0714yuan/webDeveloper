@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css</title>
+</head>
+<body>
+    <div>hello jquery1</div>
+    <div>hello jquery2</div>
+    <div>hello jquery3</div>
+    <div>hello jquery4</div>
+    <script src="./jquery/jquery-3.6.0.js"></script>
+    <script>
+        // 1.$(selector).css(name,value) 设置行内样式
+        $('div').css('color', 'red');
+
+        // 2.$(selector).css(objct)  设置行内样式
+        $('div').css({
+            width: '100px',
+            height: '100px',
+            backgroundColor: 'blue',
+            marginTop: '20px'
+        });
+
+        // 获取行内样式
+        // 3.$(selector).css(name)
+        // 返回的字符串 不能再进行链式调用了
+        // 只会返回第一个元素的值
+        $('div:eq(1)').css('color')
+
+    </script>
+</body>
+</html>

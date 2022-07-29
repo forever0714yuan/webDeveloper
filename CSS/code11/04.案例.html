@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>旋转三角</title>
+    <style>
+        .box {
+            position: relative;
+            width: 300px;
+            height: 30px;
+            border: 1px solid #000;
+        }
+
+        .box .sj {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            /* 动画 */
+            transition: transform .5s;
+            /* 平移 */
+            transform: translateY(-50%) rotate(-45deg);
+            width: 6px;
+            height: 6px;
+            border-right: 1px solid #000;
+            border-top: 1px solid #000;
+        }
+
+        .box:hover .sj {
+            transform: rotate(135deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="sj"></div>
+    </div>
+</body>
+</html>

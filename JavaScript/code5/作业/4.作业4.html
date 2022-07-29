@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作业4</title>
+</head>
+<body>
+    <script>
+        /*
+          ● 写一个函数输入某年某月某日，判断这一天是这一年的第几天？ (要使用上一题中的函数)
+          ○ 定义变量存储输入的当月天数
+          ○ 循环输入的月份，判断这个月份有几天，累加每个月的天数
+          ○ 如果是2月，判断是闰年还是平年
+          ○ getDays(year, month, day)
+        */
+
+        //    判断是否闰年
+        function isLeapYear(year) {
+            let isYear = ((year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)) ? true : false;
+            if (isYear) {
+                return isYear;
+            } else {
+                return isYear;
+            }
+        }
+        function circleSum(getIsYear, month, day) {
+
+            let aereaSum = 0;
+            for (let i = 1; i < month; i++) {
+
+                if (i % 2 !== 0) {
+                    aereaSum += 31;
+                }
+
+                if (i % 2 === 0) {
+                    if (i === 2) {
+                        switch (getIsYear) {
+                            case true:
+                                aereaSum += 28;
+                                break;
+                            case false:
+                                aereaSum += 29;
+                                break;
+                        }
+                    } else {
+                        aereaSum += 30;
+                    }
+                }
+            }
+            aereaSum += day;
+            return aereaSum;
+        }
+        // console.log(typeof isLeapYear(2009));
+        function getDays(year, month, day) {
+
+            let sumDay = 0;
+
+            if (month === 1) {
+                sumDay = day;
+            } else {
+                // 月份 >= 2
+                // 判断闰年
+                let getIsYear = isLeapYear(year);
+
+                if (getIsYear) {
+                    // 闰年 
+                    // 2月份 day < 28 
+                    // 2 月份 day > 28 
+                    // 大于2月 
+                    if (month === 2 && day > 28) {
+                        console.log('您输入的天数有问题！');
+                    } else if (month === 2 && day <= 28) {
+                        sumDay = sumDay + 31 + day;
+                    } else {
+                        sumDay = circleSum(getIsYear, month, day);
+                    }
+                } else {
+                    // 平年
+                    if (month === 2 && day >= 29) {
+                        console.log('您输入的天数有问题！');
+                    } else if (month === 2 && day <= 29) {
+                        sumDay = sumDay + 31 + day;
+                    } else {
+                        sumDay = circleSum(getIsYear, month, day);
+                    }
+                }
+            }
+            return sumDay;
+        }
+        console.log(getDays(2009, 2, 28));
+    </script>
+</body>
+</html>

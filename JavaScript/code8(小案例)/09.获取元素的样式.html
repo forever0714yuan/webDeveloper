@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>获取元素的样式</title>
+</head>
+<body>
+    <style>
+        .size {
+            height: 200px;
+            padding: 10px;
+        }
+
+        .bg {
+            background-color: chocolate;
+        }
+    </style>
+
+    <div id="box" class="size bg" style="width: 200px; opacity: 0.3;"></div>
+    <script>
+        let box = document.querySelector('#box');
+        // 只能获取到行内的样式
+        // console.log(box.style.width);
+
+        // 获取计算过后的样式
+        let style = window.getComputedStyle(box);
+
+        // 这是一个对象CSSStyleDeclaration  style对象下所有属性的值都是字符串类型
+        console.log(style);
+        console.log(style.width);
+    </script>
+</body>
+</html>

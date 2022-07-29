@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1.toString() 方法 将其他类型转换为字符串类型
+        // let num = 18;
+        // console.log(num.toString());
+        // console.log((18).toString());
+        // console.log(true.toString());
+
+        // toString 无法把undefined和null转换为字符串
+        // let u = undefined;
+        // console.log(u.toString());
+
+        // console.log(null.toString());
+
+        // 2.String 转换成字符串
+
+        // console.log(String(18));
+        // console.log(String(true));
+        // console.log(String(undefined));
+        // console.log(String(null));
+
+        // 3.+ 字符串拼接
+        // 当左右有一边是字符串，会悄悄地（隐式转换）把另一边也转换成一个字符串，然后拼接
+        let num = 8;
+
+        console.log(num + '');
+
+        let b = true;
+        console.log(b + '');
+    </script>
+</body>
+</html>

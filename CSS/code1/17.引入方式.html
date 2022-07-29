@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/code/index.css">
+    <style>
+        /* 2.内部样式 */
+        /* .red {
+            font-size: 30px;
+            color: red;
+        } */
+    </style>
+    
+</head>
+<body>
+    <!--1. 行内样式 但是不建议这样写 
+        1.1 结构代码和样式代码混合，不便管理
+        1.2 样式代码不能复用
+    -->
+    <div style="color: red;" >行内样式</div>
+
+    <!--2.内部样式(嵌入式) 
+        2.1 结构和样式简单分离
+        2.2 代码在当前页面中是可以复用
+
+    -->
+    <div class="red">内部样式</div>
+
+    <!--3.外部样式
+        3.1创建css文件
+        3.2通过link标签引入
+
+        1、结构和样式完全分离
+        2、样式代码在当前页面中可以复用的
+        3、实际开发中使用最多的方式
+    -->
+    <div id="box">外部样式</div>
+</body>
+</html>

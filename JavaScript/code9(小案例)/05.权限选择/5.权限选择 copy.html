@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    select {
+      width: 100px;
+      height: 200px;
+    }
+
+    select,
+    div {
+      float: left;
+    }
+
+    div {
+      width: 100px;
+      text-align: center;
+    }
+
+    div button {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 
+    标签属性：multiple ，可以实现下拉框中多选效果
+   -->
+  <select id="sel1" multiple>
+    <option value="">增加</option>
+    <option value="">修改</option>
+    <option value="">删除</option>
+    <option value="">复制</option>
+    <option value="">查找</option>
+    <option value="">移动</option>
+  </select>
+  <div>
+    <button id="toRight">&gt;</button><br>
+    <button id="toLeft">&lt;</button><br>
+    <button id="allToRight">&gt;&gt;</button><br>
+    <button id="allToLeft">&lt;&lt;</button><br>
+
+  </div>
+  <select id='sel2' multiple>
+
+  </select>
+  <script>
+    // 1. 获取元素
+    // 1.1 获取按钮
+    var toRight = document.querySelector('#toRight');
+    // 1.2 获取右侧select
+    var sel2 = document.querySelector('#sel2');
+
+    // 2. 点击>按钮实现左侧到右侧的移动
+    // 2.1 给按钮注册点击事件
+    toRight.onclick = function () {
+      // 2.2 获取左侧选中的opiton
+      // 注意：在原生js中没有:selcted这个选择,这是坑！
+      // 注意：:checked针对所有的表单元素
+      var options = document.querySelectorAll('#sel1 option:checked');
+      console.log(options.length)
+      // 2.3 循环遍历获取的opiton,追加到右侧
+      for (var i = 0; i < options.length; i++) {
+        sel2.appendChild(options[i]);
+        // 2.4 把已经移动过来的元素，设置为不选中
+        options[i].selected = false;
+      }
+      // options.forEach(function (opt) {
+      //   sel2.append(opt);
+      //   opt.selected = false;
+      // });
+    }
+
+  </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作业2</title>
+</head>
+<body>
+    <script>
+        // 5. 判断水仙花数
+        // ○ 是指一个三位数其各位数字的立方和等于该数本身，例如153是“水仙花数”，因为：153 = 13 + 53 + 33。
+        // ○ 百位：153 / 100 取整
+        // ○ 十位：153 % 100 / 10 取整
+        // ○ 个位：153 % 10 取整
+
+        // console.log();
+        let num = parseInt(prompt('请输入整数值!'));
+
+        if (isNaN(num)) {
+            // 5.1 判断是否为数值
+            console.log('请输入数值');
+        } else {
+            // 5.2 取出百位
+            let hundredNum = parseInt(num / 100);
+
+            // 5.3 取出十位
+
+            let tenNum = parseInt(num % 100 / 10);
+
+            // 5.4 取出个位
+
+            let Num = parseInt(num % 10);
+
+            if ((Math.pow(hundredNum, 3) + Math.pow(tenNum, 3) + Math.pow(Num, 3)) === num) {
+                console.log('水仙花数！');
+            } else {
+                console.log('不是水仙花数！');
+            }
+        }
+
+    </script>
+</body>
+</html>

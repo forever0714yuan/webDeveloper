@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>粘性定位</title>
+    <style>
+        body {
+            height: 2000px;
+        }
+
+        .header {
+            width: 1200px;
+            height: 100px;
+            margin: 100px auto;
+            background-color: aqua;
+            /* 粘性定位 */
+            /* 
+                当设置了粘性定位 
+                    吸顶效果  必须设置top/left/right/bottom其中一个值，设置粘到哪里
+                    不能设置行内元素的大小
+                    没有脱落文档流，占有原来的位置，类似于相对定位
+                    相对的位置是可视窗口的位置
+            */
+            position: sticky;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header"></div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作业3</title>
+</head>
+<body>
+    <script>
+        //         ●  将字符串数组用 | 或其他符号分割成字符串
+        //   ○ 实现效果
+        //     ■ 假设数组为 ['a', 'b', 'c', 'd']
+        //     ■ 输出结果 a|b|c|d
+        let arr = ['a', 'b', 'c', 'd'];
+        let str = '';
+
+        for (let i = 0; i < arr.length; i++) {
+            str += arr[i]
+            if (i !== (arr.length - 1)) {
+                str += '|'
+            }
+        }
+        console.log(str);
+
+    </script>
+</body>
+</html>

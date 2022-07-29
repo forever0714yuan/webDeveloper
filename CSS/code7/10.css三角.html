@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bg {
+            width: 500px;
+            height: 500px;
+            position: relative;
+            background-color: red;
+            margin-top: 200px;
+        }
+
+        .box {
+            width: 0;
+            height: 0;
+            position: absolute;
+            right: 0;
+            top: -100px;
+            border: 50px solid red;
+            /* border-color: red green blue salmon; */
+            border-color: transparent transparent salmon transparent;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg">
+        <div class="box"></div>
+    </div>
+</body>
+</html>

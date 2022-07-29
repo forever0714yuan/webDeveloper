@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>属性选择器</title>
+    <style>
+        /* 获取拥有name属性的元素 */
+        input[name='a'] {
+            border: 1px solid red;
+        }
+
+        /* 获取input标签并且type等于checkbox */
+        /* input[type=checkbox] {
+            color: blue;
+        } */
+
+        /* 获取class属性以icon靠头的 */
+
+        div[class^=icon] {
+            width: 100px;
+            height: 100px;
+            background-color: aquamarine;
+        }
+
+        div[class$=a] {
+            width: 50px;
+            height: 50px;
+            background-color: brown;
+        }
+
+        div[class*=sss] {
+            width: 100px;
+            height: 100px;
+            background-color: coral;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" name="a">
+    <input type="text" name="b">
+    <input type="checkbox">
+    <input type="checkbox">
+    <input type="radio">男
+    <input type="text" value="按钮">
+
+
+    <div class="iconabc"></div>
+    <div class="iconabc"></div>
+    <div class="icona"></div>
+    <div class="icssson"></div>
+    <div class="icssson"></div>
+    <div class="icssson"></div>
+    <div class="iconabc"></div>
+</body>
+</html>

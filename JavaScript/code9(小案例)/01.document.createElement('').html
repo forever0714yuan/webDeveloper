@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document.createElement('')</title>
+    <style>
+        .red:hover {
+            color: coral;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <script>
+        let arr = ['西施', '貂蝉', '贵妃', '元'];
+
+        // 创建一个ul元素
+        let ul = document.createElement('ul');
+
+        // 把ul放到div中
+        let box = document.querySelector('.box');
+        box.appendChild(ul);
+
+        // 动态加载li
+        arr.forEach((item) => {
+            let li = document.createElement('li');
+            li.textContent = item;
+            li.className = 'red';
+
+            li.onclick = function () {
+                console.log(item, '我真的会谢');
+            }
+            // document.mouseover
+            ul.appendChild(li);
+        })
+
+        // appendChild  只能追加一个DOM节点
+        // append  能追加多个个DOM节点
+        // 也可以传字符串，
+    </script>
+</body>
+</html>

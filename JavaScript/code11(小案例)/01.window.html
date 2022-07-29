@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>window</title>
+</head>
+<body>
+    <script>
+        // 1.调用window下的成员是可以省略window的
+        var abc = 100;
+        console.log(window.abc);
+        console.log(abc);
+
+        // 2.如果使用var 来定义name 和 top 变量会出问题
+
+        // 2.1window 具有name 和top 属性
+
+        // 2.2会自动将100 数值转换为字符串
+        var name = 100;
+
+        // 2.3而且window的top属性是只读的
+        var top = 1000;
+        console.log(name);
+        console.log(top);
+    </script>
+</body>
+</html>

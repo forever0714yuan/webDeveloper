@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        .m_xback {
+            background: #fff;
+            font-family: "Microsoft YaHei", "微软雅黑", Helvetica, "黑体", Arial, Tahoma;
+        }
+
+        input,
+        textarea {
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        /* m_xchunk */
+        .m_xchunk {
+            font-size: 16px;
+            width: 500px;
+            margin: 0 auto;
+        }
+
+        .m_xchunk .row {
+            border-bottom: 1px solid #e6e6e6;
+            padding: 6px 0 6px 12px;
+        }
+
+        .m_xchunk .row span {
+            width: 70px;
+            float: left;
+            height: 44px;
+            color: #666;
+            line-height: 44px;
+        }
+
+        .m_xchunk .row .right input.text {
+            height: 44px;
+            line-height: 44px;
+            color: #4a4a4a;
+            border: none;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        .m_xchunk .row .right input::-webkit-input-placeholder {
+            color: #b1b1b1;
+        }
+
+        .m_xchunk .row .right {
+            border-bottom: none;
+            margin-left: 70px;
+        }
+
+        .m_xchunk .row .right .input {
+            margin-right: 100px;
+        }
+
+        .m_xchunk .row .right .code {
+            float: right;
+            margin-top: 5px;
+        }
+
+        .m_xchunk .row .right .code input {
+            border: 1px solid #d7d7d7;
+            background: #fff;
+            width: 100px;
+            height: 36px;
+            line-height: 32px;
+            color: #4a4a4a;
+            font-size: 16px;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .m_xchunk .row .right .code input.gray {
+            background: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="m_xchunk">
+        <div class="row">
+            <span>验证码</span>
+            <div class="right fix">
+                <div class="code">
+                    <input type="button" value="获取验证码" class="J_code" />
+                </div>
+                <div class="input">
+                    <input type="text" placeholder="请输入验证码" class="text" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const btn = document.querySelector('.J_code');
+        btn.onclick = function () {
+            let _this = this;
+
+            let count = 60;
+            this.disabled = true;
+            this.classList.add('gray');
+            this.value = count + 's';
+
+            let timer = setInterval(function () {
+                count--;
+                if (count <= 0) {
+                    _this.value = '获取验证码';
+                    _this.disabled = false;
+                    _this.classList.remove('gray');
+                    clearInterval(timer);
+                } else {
+                    // 没有小于0
+                    _this.value = count + 's';
+                }
+            }, 1000)
+        }
+    </script>
+</body>
+
+</html>

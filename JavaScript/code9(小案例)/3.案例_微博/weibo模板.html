@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/weibo.css">
+</head>
+
+<body>
+  <div class="w">
+    <div class="controls">
+      <img src="images/tip.png" alt=""><br>
+      <textarea placeholder="说点什么吧..." id="area" cols="30" rows="10" maxlength="200"></textarea>
+      <div>
+        <span class="useCount">0</span>
+        <span>/</span>
+        <span>200</span>
+        <button id="send">发布</button>
+      </div>
+
+    </div>
+    <div class="contentList">
+      <ul>
+
+      </ul>
+    </div>
+  </div>
+  <script>
+    //   文本框中输入内容显示当前输入的字符个数，最多输入200字符
+    // 获取文本框
+    let txtArea = document.querySelector('#area');
+    // 监听文字的输入字符，事件oninput
+    txtArea.oninput = function () {
+      // 获取当前文本框的内容
+      const length = this.value.length;
+
+      let useCount = document.querySelector('.useCount');
+
+      useCount.textContent = length;
+    }
+    // 点击发布动态创建 li 以及相关子元素，插入到的列表中的第一个位置
+
+    // 给发布按钮注册事件
+    // 1.创建ul
+    const contentList = document.querySelector('.contentList');
+    const ul = document.createElement('ul');
+    contentList.append(ul);
+
+    const btnSend = document.querySelector('#send');
+
+    btnSend.onclick = function () {
+      // 2.判断用户是否输入内容
+      if (txtArea.value.length === 0) {
+        alert('请输入内容');
+        return;
+      };
+      // 3.判断字符的字数是否超过限制
+      if (txtArea.value.length >= 200) {
+        alert('字数不能大于200个字')
+      }
+      // 4. 动态生成列表
+      // 4.1 创建li
+      const li = document.createElement('li');
+      // 用prepend 将创建的li插入到ul的最前面
+      ul.prepend(li);
+
+      let div = document.createElement('div');
+
+      li.append(div);
+      div.className = 'info';
+
+      // 4.2 创建img
+      let img = document.createElement('img');
+      div.append(img);
+      img.src = 'images/03.jpg'
+
+      // 4.3 创建span 
+      let span = document.createElement('span');
+      span.textContent = '百里守约';
+
+      div.append(span);
+
+      // 4.4 创建p
+      let p = document.createElement('p');
+      p.textContent = '发布于：2018-10-10 12:12:12';
+      div.append(p);
+
+      // 4.4 创建li 中的第二个div
+      div = document.createElement('div');
+      div.className = 'content'
+      div.textContent = txtArea.value;
+      li.append(div);
+
+      // 5.清空文本框
+      txtArea.value = '';
+      let useCount = document.querySelector('.useCount');
+      useCount.textContent = 0;
+    }
+
+  </script>
+</body>
+
+</html>

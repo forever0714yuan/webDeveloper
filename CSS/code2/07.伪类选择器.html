@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伪类选择器</title>
+    <style>
+        /* 未被访问 */
+        a:link {
+            color: red;
+        }
+
+        /* 访问之后 */
+        a:visited {
+            color: pink;
+        }
+
+        /* 悬浮在其上的颜色 */
+        a:hover {
+            color: yellowgreen;
+        }
+
+        /* 点击时的颜色 */
+        a:active {
+            color: slateblue;
+        }
+
+        input:focus {
+            background-color: aqua;
+            /* 去除选中状态边框 */
+            border: 0;
+            /* 去除选中状态边框 */
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <a href="#">百度一下</a><br>
+
+    用&ensp;户&ensp;名：<input type="text" name="username" /><br />
+    密&emsp;&emsp;码：<input type="password" name="pwd" /><br />
+    确认密码：<input type="password" name="confimPwd" />
+</body>
+</html>

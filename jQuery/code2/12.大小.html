@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>位置</title>
+    <style>
+        #outer {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            left: 300px;
+            top: 300px;
+            background-color: aqua;
+        }
+
+        #inner {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            left: 50px;
+            top: 50px;
+            border: 10px solid orange;
+            padding: 10px;
+            background-color: bisque;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="outer">
+        <div id="inner"></div>
+    </div>
+    <script src="./jquery/jquery-3.6.0.js"></script>
+    <script>
+        // 内容的宽高
+        console.log($('#inner').width());
+        console.log($('#inner').height());
+        // 内容 + 内边距
+        console.log($('#inner').innerWidth());
+        console.log($('#inner').innerHeight());
+
+        // 内容 + 内边距 + 边框
+        console.log($('#inner').outerHeight());
+        console.log($('#inner').outerWidth());
+        // 内容 + 内边距 + 边框 + 外边距
+        console.log($('#inner').outerWidth(true));
+        console.log($('#inner').outerHeight(true));
+    </script>
+</body>
+</html>

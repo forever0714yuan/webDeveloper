@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3d相册</title>
+    <style>
+        body {
+            background-color: #282c34;
+            perspective: 1000px;
+        }
+
+        .box {
+            position: relative;
+            width: 240px;
+            height: 150px;
+            margin: 250px auto;
+            /* 开启子元素的3d渲染 */
+            transform-style: preserve-3d;
+            /* transform: rotateX(-15deg); */
+            animation: xuanzhuan 25s linear infinite;
+        }
+
+        .box:hover {
+            animation-play-state: paused;
+
+        }
+
+        .box:hover .mide {
+            animation-play-state: paused;
+        }
+
+        @keyframes xuanzhuan {
+            from {
+                transform: rotateX(-15deg) rotateY(0deg);
+            }
+
+            to {
+                transform: rotateX(-15deg) rotateY(360deg);
+            }
+        }
+
+        @keyframes rotateReverse {
+            from {
+                transform: rotateY(360deg);
+            }
+
+            to {
+                transform: rotateY(0deg);
+            }
+        }
+
+        .box img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .box .mide {
+            animation: rotateReverse 25s linear infinite;
+        }
+
+        .box img:nth-child(1) {
+            transform: rotateY(0deg) translateZ(300px);
+        }
+
+        .box img:nth-child(2) {
+            transform: rotateY(60deg) translateZ(300px);
+        }
+
+        .box img:nth-child(3) {
+            transform: rotateY(120deg) translateZ(300px);
+        }
+
+        .box img:nth-child(4) {
+            transform: rotateY(180deg) translateZ(300px);
+        }
+
+        .box img:nth-child(5) {
+            transform: rotateY(240deg) translateZ(300px);
+        }
+
+        .box img:nth-child(6) {
+            transform: rotateY(300deg) translateZ(300px);
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <img src="./images/mv1.jpg" alt="">
+        <img src="./images/mv2.jpg" alt="">
+        <img src="./images/mv3.jpg" alt="">
+        <img src="./images/mv4.jpg" alt="">
+        <img src="./images/mv5.jpg" alt="">
+        <img src="./images/mv6.jpg" alt="">
+        <img src="./images/mid.jpg" alt="" class="mide">
+    </div>
+</body>
+</html>

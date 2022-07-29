@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <!-- 引入初始化 -->
+  <link rel="stylesheet" href="css/base.css">
+  <!-- 引入购物车样式 -->
+  <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+  <div class="car">
+    <table>
+      <thead>
+        <tr>
+          <th>
+            <input type="checkbox" id="all">全选
+          </th>
+          <th>
+            商品
+          </th>
+          <th>
+            单价
+          </th>
+          <th>
+            商品数量
+          </th>
+          <th>
+            小计
+          </th>
+          <th>
+            操作
+          </th>
+        </tr>
+      </thead>
+      <tbody id="tbody">
+        <tr>
+          <td>
+            <input type="checkbox">
+          </td>
+          <td>
+            <img src="image/01.jpg">
+            <p>牛奶</p>
+          </td>
+          <td>
+            20￥
+          </td>
+          <td>
+            <div class="count-c clearfix">
+              <a href="javascript:" class="reduce disabled">-</a>
+              <input type="text" value="1">
+              <a href="javascript:" class="add">+</a>
+            </div>
+          </td>
+          <td>
+            20￥
+          </td>
+          <td>
+            <a href="javascript:" class="del">删除</a>
+          </td>
+
+        </tr>
+        <tr>
+          <td>
+            <input type="checkbox">
+          </td>
+          <td>
+            <img src="image/01.jpg">
+            <p>牛奶</p>
+          </td>
+          <td>
+            20￥
+          </td>
+          <td>
+            <div class="count-c clearfix">
+              <a href="javascript:" class="reduce">-</a>
+              <input type="text" readonly value="2">
+              <a href="javascript:" class="add">+</a>
+            </div>
+          </td>
+          <td>
+            40￥
+          </td>
+          <td>
+            <a href="javascript:" class="del">删除</a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="checkbox">
+          </td>
+          <td>
+            <img src="image/01.jpg">
+            <p>牛奶</p>
+          </td>
+          <td>
+            20￥
+          </td>
+          <td>
+            <div class="count-c clearfix">
+              <a href="javascript:" class="reduce">-</a>
+              <input type="text" readonly value="2">
+              <a href="javascript:" class="add">+</a>
+            </div>
+          </td>
+          <td>
+            40￥
+          </td>
+          <td>
+            <a href="javascript:" class="del">删除</a>
+          </td>
+
+        </tr>
+        <tr>
+          <td>
+            <input type="checkbox">
+          </td>
+          <td>
+            <img src="image/01.jpg">
+            <p>牛奶</p>
+          </td>
+          <td>
+            20￥
+          </td>
+          <td>
+            <div class="count-c clearfix">
+              <a href="javascript:" class="reduce">-</a>
+              <input type="text" readonly value="2">
+              <a href="javascript:" class="add">+</a>
+            </div>
+          </td>
+          <td>
+            40￥
+          </td>
+          <td>
+            <a href="javascript:" class="del">删除</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="controls clearfix">
+      <a href="javascript:" class="del-all">删除所选商品</a>
+      <a href="javascript:" class="clear">清理购物车</a>
+      <a href="javascript:" class="pay">去结算</a>
+      <p>
+        已经选中<span id="totalCount">0</span>件商品;总价：<span id="totalPrice" class="total-price">0￥</span>
+      </p>
+    </div>
+  </div>
+
+  <script>
+    // 1. 点击全选，让子的checkbox的选中状态和全选的checkbox保持一致
+    // 1.1 获取全选的checkbox
+    let all = document.querySelector('#all');
+    // 1.2 给全选注册点击事件
+    all.onclick = function () {
+      // 1.3 获取所有子的checkbox，遍历所有子的checkbox，设置子checkbox的选中状态和全选checkbox的选中状态一致
+      let chks = document.querySelectorAll('#tbody input[type=checkbox]');
+      chks.forEach(function (chk) {
+        // 注意这里不是事件处理函数了，每一个function都有自己的this
+        // 此处的this不是事件处理函数中的this
+        chk.checked = all.checked;
+      });
+      // 更新统计的价格
+      updateCheckPrice()
+    }
+
+    // 2. 点击子的checkbox，判断所有子的checkbox是否都选中了，如果都选中父checkbox选中，如果有一个子的checkbox没有选中父checkbox不选中
+
+    // 2.1 找到所有的子的checkbox，遍历，注册点击事件
+    let chks = document.querySelectorAll('#tbody input[type=checkbox]');
+    chks.forEach(function (chk) {
+      // 注册点击事件
+      chk.onclick = function () {
+        // 2.2 当点击子的checkbox，获取所有子的checkbox的个数，获取选中的checkbox的个数
+
+        // 获取所有子的checkbox的个数
+        let length = chks.length;
+
+        // 获取选中的checkbox的个数
+        let checkedLength = document.querySelectorAll('#tbody input[type=checkbox]:checked').length;
+
+        // 2.3 判断checkbox的个数是否和选中的子的checkbox个数相等，如果相等，全选了，如果不相等不全选
+
+        // if (length === checkedLength) {
+        //   all.checked = true;
+        // } else {
+        //   all.checked = false;
+        // }
+
+        all.checked = length === checkedLength;
+
+        // 更新统计的价格
+        updateCheckPrice()
+      };
+    });
+
+
+    // 实现加减文本框
+    // 1.找到所有的count-c
+
+    let countCs = document.querySelectorAll('.count-c');
+    // 2.遍历每一个元素
+    countCs.forEach((countC) => {
+      // 3.count-c 中的+-按钮，注册点击事件
+      // -按钮
+      let btnReduce = countC.firstElementChild;
+
+      // +按钮
+      let btnAdd = countC.lastElementChild;
+
+      // 数字文本框
+      let txtNum = countC.children[1];
+
+      let num = parseInt(txtNum.value);
+
+      // 点击-，让文本框的数字--，如果当前文本的值是1，不能再--，可以让--按钮不可用
+      btnReduce.onclick = function () {
+
+        if (num > 1) {
+          num--;
+          // 重新给商品数量文本框赋值
+          txtNum.value = num;
+        }
+        if (num === 1) {
+          // 禁用按钮
+          this.classList.add('disabled');
+        }
+        // 传入数量，当前点击的按钮
+        countPrice(num, this)
+        // 取消a的默认行为
+        return false
+      }
+
+      // 点击+，让文本框的数字++，
+      btnAdd.onclick = function () {
+        if (num === 1) {
+          // 启用-按钮
+          btnReduce.classList.remove('disabled');
+        }
+        num++;
+        txtNum.value = num;
+        countPrice(num, this);
+        //  取消a的默认行为
+        return false;
+      }
+    })
+
+
+    // 当加减文本框数字边框，更新当前行的小计
+    function countPrice(num, link) {
+      // 1.获取td元素
+      let currentTd = link.parentNode.parentNode;
+
+      // 2.获取单价元素
+      let priceTd = link.parentNode.parentNode.previousElementSibling;
+
+      // 转换为数字
+
+      let price = parseInt(priceTd.textContent);
+
+      // 小计
+      let priceNum = price * num;
+
+      currentTd.nextElementSibling.textContent = priceNum + ' ¥';
+
+      // 更新统计的价格
+      updateCheckPrice();
+    }
+
+    // 当前行的 checkbox 变化或者数字文本框变化，统计当前购买商品数量和价格4
+    function updateCheckPrice() {
+
+      let sumProNum = 0;
+
+      let sumPrice = 0;
+
+      // 1.获取所有选中的checkbox
+      let checkeds = document.querySelectorAll('#tbody input[type=checkbox]:checked');
+
+      // 获取最后一行商品数量的元素
+      let totalCounts = document.querySelector('#totalCount');
+      // console.log(totalCounts);
+      // 获取总价
+      let totalPrices = document.querySelector('#totalPrice');
+      // console.log(totalPrices);
+      // 2.遍历选中的checkbox所在的行
+      checkeds.forEach((chk) => {
+        let currentTr = chk.parentElement.parentElement;
+        console.log(currentTr);
+        // 3.找商品数量
+        let priceNum = parseInt(currentTr.children[3].children[0].children[1].value)
+
+        // 4.小计
+        let countPrices = parseInt(currentTr.children[4].textContent);
+
+        // 5.商品数量累加
+        sumProNum += priceNum;
+
+        // 6.小计累加
+        sumPrice += countPrices;
+        // console.log(sumProNum, sumPrice);
+      })
+      // 7.赋值给最后一行
+      totalCounts.textContent = sumProNum;
+      totalPrices.textContent = sumPrice + '¥';
+    }
+
+    // 点击删除按钮
+
+    let btnDels = document.querySelectorAll('.del');
+
+    btnDels.forEach((btnDel) => {
+      btnDel.onclick = function () {
+
+        this.parentNode.parentNode.remove();
+
+        // 复习 a 标签阻止默认事件的方式
+
+        // 更新总价格和数量
+        updateCheckPrice()
+      }
+    })
+
+    // 点击删除选中商品
+    let delAll = document.querySelector('.del-all');
+
+    delAll.onclick = function () {
+      // 获取选中的元素
+      let chks = document.querySelectorAll('#tbody input[type=checkbox]:checked');
+      chks.forEach((chk) => {
+        chk.parentNode.parentNode.remove();
+        updateCheckPrice();
+      })
+    }
+
+
+    // 清理购物车
+
+    let clear = document.querySelector('.clear');
+    let allCheck = document.querySelector('#all');
+
+    clear.onclick = function () {
+      let chks = document.querySelectorAll('#tbody input[type=checkbox]');
+      chks.forEach((chk) => {
+        chk.parentNode.parentNode.remove();
+        updateCheckPrice();
+      })
+      allCheck.checked = false;
+    }
+
+
+  </script>
+  <script>
+    // viod 可以执行任意的运算，无论结果是什么，但是结果都是undefined
+  </script>
+</body>
+
+</html>

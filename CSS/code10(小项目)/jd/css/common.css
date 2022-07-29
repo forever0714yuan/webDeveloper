@@ -1,0 +1,238 @@
+/* 当前网站中通用的样式 */
+/* 公共样式 */
+.hide,
+.none {
+    display: none
+}
+
+.clearfix:after {
+    visibility: hidden;
+    clear: both;
+    display: block;
+    content: ".";
+    height: 0
+}
+
+.clearfix {
+    *zoom: 1
+}
+
+/* 版心 */
+.w {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.red {
+    color: #c81623;
+}
+
+/*************** 1.快捷菜单*******************/
+.shortcut {
+    height: 31px;
+    background-color: #f1f1f1;
+    line-height: 31px;
+}
+
+.shortcut .w .fl li {
+    float: left;
+}
+
+.shortcut .w .fr li {
+    float: left;
+}
+
+/* 偶数的li 显示1px 的竖线 */
+.shortcut .w .fr li:nth-child(2n) {
+    width: 1px;
+    height: 12px;
+    margin: 10px 10px;
+    background-color: #989898;
+}
+
+/* 下箭头图标 */
+.bottom-arrow::after {
+    content: '';
+    font-family: iconfont;
+    margin-left: 10px;
+    display: inline-block;
+    /* 缩放 对行内元素无效*/
+    transform: scale(0.8);
+}
+
+/*************** 1.快捷菜单*******************/
+/*************** 2.网站头部*******************/
+.header {
+    height: 105px;
+    position: relative;
+}
+
+/* 设置logo */
+.header .logo h1 a {
+    position: absolute;
+    left: 20px;
+    overflow: hidden;
+    width: 167px;
+    height: 105px;
+    text-indent: -9999px;
+    background: url(../images/jd.png);
+}
+
+/* 购物车 */
+
+.header .shopcar {
+    position: absolute;
+    top: 25px;
+    right: 64px;
+    width: 140px;
+    height: 36px;
+    padding-top: 10px;
+    border: 1px solid #e5e5e5;
+    background-color: #f7f7f7;
+    text-align: center;
+}
+
+
+
+.header .shopcar a::before {
+    content: '';
+    font-family: iconfont;
+    font-size: 14px;
+    margin-right: 5px;
+    color: #f94d11;
+}
+
+.header .shopcar a::after {
+    content: '';
+    font-size: 12px;
+    margin-left: 2px;
+    font-family: iconfont;
+}
+
+/* 购物车数量 */
+.header .shopcar .cont {
+    position: absolute;
+    right: 12px;
+    top: -6px;
+    padding: 0px 4px;
+    border-radius: 8px 8px 8px 0;
+    color: #fff;
+    background-color: #e60012;
+}
+
+/* 搜索框 */
+.header .search {
+    position: absolute;
+    left: 347px;
+    top: 25px;
+    width: 538px;
+    height: 36px;
+    border: 2px solid #b1191a;
+}
+
+.header .search input {
+    float: left;
+    width: 456px;
+    height: 32px;
+    padding-left: 8px;
+}
+
+.header .search button {
+    float: left;
+    width: 78px;
+    height: 32px;
+    background-color: #b1191a;
+    font-size: 16px;
+    color: #f9f2f2;
+}
+
+/* 搜索关键词 */
+.header .hotwords {
+    position: absolute;
+    left: 347px;
+    top: 65px;
+}
+
+.header .hotwords li {
+    float: left;
+    margin: 0 10px;
+}
+
+
+/*************** 2.网站头部*******************/
+
+/*************** 3.footer*******************/
+.footer {
+    height: 417px;
+    margin-top: 38px;
+    background-color: #f5f5f5;
+}
+
+.footer .w .service {
+    padding: 30px 34px;
+    border-bottom: 1px solid #efefef;
+}
+
+.footer .w .service li {
+    float: left;
+    width: 20%;
+}
+
+.footer .w .service li h2 {
+    float: left;
+    width: 49px;
+    height: 49px;
+    margin-right: 5px;
+    margin-top: 6px;
+    font-size: 14px;
+    color: #333;
+    background: url(../images/icons.png) no-repeat -253px -3px;
+}
+
+.footer .w .service li .info {
+    float: left;
+}
+
+/* 帮助 */
+.footer .w .help {
+    padding: 20px 50px;
+    border-bottom: 1px solid #efefef;
+}
+
+.footer .w .help dl {
+    float: left;
+    width: 183px;
+}
+
+.footer .w .help dl:last-child {
+    text-align: center;
+}
+
+.footer .w .help dl dt {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.footer .w .copyright {
+    text-align: center;
+}
+
+.footer .w .copyright .links {
+    height: 46px;
+    height: 46px;
+}
+
+.footer .w .copyright .links a {
+    padding: 0 10px;
+}
+
+/*************** 3.footer*******************/

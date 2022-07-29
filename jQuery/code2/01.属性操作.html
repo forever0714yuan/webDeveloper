@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>属性操作</title>
+</head>
+<body>
+    <input type="checkbox" name="" id="chk">
+
+    <select name="" id="select">
+        <option value="1">幼儿园</option>
+        <option value="2">小学</option>
+        <option value="3">初中</option>
+    </select>
+
+    <div data-abc="aaa"></div>
+
+    <script src="./jquery/jquery-3.6.0.js"></script>
+    <script>
+        //在操作checked、selected、disabled,不建议使用attr,建议使用prop;
+
+        // 因为如果在没有设置checked的时候，在获取值的时候,attr 获取到是undefined
+
+        // $('#chk').attr('checked', true);
+
+        // console.log($('#chk').attr('checked'));
+
+
+        // $('#chk').prop('checked', true);
+        // console.log($('#chk').prop('checked')); //false
+
+        // $('#select option:eq(1)').prop('selected', true)
+
+        // 通过data操作 html5中的data-属性
+        console.log($('div').data('abc'));
+
+        $('div').data('sss', 'vvv');
+
+
+        console.log($('div').data('sss'));
+    </script>
+</body>
+</html>

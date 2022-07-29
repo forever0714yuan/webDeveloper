@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据类型转换</title>
+</head>
+<body>
+    <script>
+        // 输入两个数
+        // 获取到的数 是字符串类型的值
+        // let n1 = prompt('请输入第一个数：');
+        // let n2 = prompt('请输入第二个数：');
+
+        // let sum = n1 + n2;
+        // console.log(sum);
+
+        // 1.Number() 方法  把其他类型转换成数值类型
+        console.log(Number('18'));
+
+        // NaN 不是一个数字
+        console.log(Number('1a'));
+
+        // true 转换成数值是1
+        console.log(Number(true));
+        console.log(Number(false));
+        // NaN
+        console.log(Number(undefined));
+        // null 转换成数值类型0
+        console.log(Number(null));
+
+        // 2.parseInt  把字符串转换为数值类型(整数)
+        console.log(parseInt('1123'));
+
+        // NaN
+        // 在解析的时候，会从前往后扫描字符串 知道遇到非数字的部分位置，返回前面的数字部分
+        console.log(parseInt('aaa'));
+        // 12
+        console.log(parseInt('12a'));
+        // NaN
+        console.log(parseInt('a12'));
+
+        //3.parseFloat(浮点数) 把字符串转换成数值类型
+        console.log(parseFloat('123.1'));
+        console.log(parseFloat('123.123'));
+        console.log(parseFloat('123.123.123'));
+        console.log(parseFloat('123abc'));
+        console.log(parseFloat('abc123'));
+
+    </script>
+</body>
+</html>

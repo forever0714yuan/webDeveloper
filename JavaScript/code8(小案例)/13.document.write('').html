@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>Holle</div>
+    <button id="btn">按钮</button>
+    <script>
+        // 输出到页面最后
+        // document.write('<h1>World</h1>');
+        // document.write('<h2>World</h2>');
+
+        let btn = document.querySelector('#btn');
+        btn.onclick = function () {
+            // 先清空页面，再输出 document.write() 的内容
+            document.write('<h1>World</h1>');
+            document.write('<h2>World</h2>');
+        }
+    </script>
+</body>
+</html>

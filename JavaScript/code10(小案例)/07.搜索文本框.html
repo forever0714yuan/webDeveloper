@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>搜索文本框</title>
+</head>
+<body>
+    <input type="text" id="search">
+    <script>
+        // 在文本框上，让文本里获取焦点
+        let textSearch = document.querySelector('#search');
+
+        document.onkeydown = handleKeydown;
+
+        function handleKeydown(e) {
+            // 判断用户是否按下 s 
+
+            if (e.key.toLowerCase() === 's') {
+                textSearch.focus();
+
+                // 取消默认的行为
+                e.preventDefault();
+            }
+        }
+        // 当文本框获取焦点以后，需要把document 的keydown 事件移除
+        textSearch.addEventListener('focus', function () {
+            document.onkeydown = null;
+        })
+        // 当文本框失去焦点以后，需要重新注册 document 的keydown 事件
+        textSearch.addEventListener('blur', function () {
+            document.onkeydown = handleKeydown;
+        })
+    </script>
+</body>
+</html>

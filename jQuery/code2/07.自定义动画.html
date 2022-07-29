@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自定义动画</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">按钮</button>
+
+    <div class="box"></div>
+    <div class="box"></div>
+
+    <script src="./jquery/jquery-3.6.0.js"></script>
+    <script>
+        // $('#btn').click(function () {
+        //     $('#box')
+        //         .animate({
+        //             width: 500
+        //         }, 1000)
+        //         .animate({
+        //             height: 500
+        //         }, 1000)
+        //         .animate({
+        //             marginLeft: 500
+        //         }, 1000)
+        // })
+
+        $('#btn').click(function () {
+
+            console.log($('#box'));
+            // 使用id 不能生效  因为id是唯一的
+
+            $('.box:eq(0)').animate({
+                width: 500
+            }, 1000, 'linear')
+
+            $('.box:eq(1)').animate({
+                width: 500
+            }, 1000, 'swing')
+        })
+    </script>
+</body>
+</html>

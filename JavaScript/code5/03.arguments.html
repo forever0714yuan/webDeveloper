@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>arguments</title>
+</head>
+<body>
+    <script>
+        function getArguments() {
+            // arguments 只能在函数内部使用
+            // arguments 是伪数组
+            // arguments 可以获取函数调用时的所有实参
+            console.log(arguments);
+
+        }
+
+        getArguments()
+        getArguments(1)
+        getArguments(1, 2)
+        getArguments(1, 2, 3, 4)
+
+
+        // 求任意个数的最大值 或者和
+        function getMax() {
+            let max = arguments[0];
+
+            for (let i = 0; i < arguments.length; i++) {
+                if (max < arguments[i]) {
+                    max = arguments[i]
+                }
+            }
+            return max;
+        }
+
+        getMax(1, 2, 3, 4)
+    </script>
+</body>
+</html>

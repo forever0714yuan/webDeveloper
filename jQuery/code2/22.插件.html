@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box"></div>
+    <script src="./jquery/jquery-3.6.0.js"></script>
+    <script>
+        // data ['a','b','c']
+        ; (function (window) {
+            // 开启一个局部作用域，定义的变量外部不能访问
+            $.fn.list = function (data) {
+                const arr = [];
+
+                arr.push('<ul>')
+                data.forEach((item) => {
+                    arr.push(`<li>${item}</li>`)
+                })
+                arr.push('</ul>')
+
+                this.append(arr.join(''))
+            }
+
+        })(window)
+        $('#box').list([2, 3, 4, 5])
+    </script>
+</body>
+</html>

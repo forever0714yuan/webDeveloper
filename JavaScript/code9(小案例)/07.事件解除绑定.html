@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件解除绑定</title>
+</head>
+<body>
+    <!-- // 行内注册事件 对应的解除绑定 -->
+    <a href="javascript:" onclick="alert('支付');this.onclick = null"></a>
+
+    <a href="javascript:" id="pay"></a>
+    <script>
+        // const pay = document.querySelector('#pay');
+
+        // pay.onclick = function(){
+        //     alert('支付');
+        //     pay.onclick = null
+        // }
+
+        // 标准绑定事件的方式对应的方式
+        const pay = document.querySelector('#pay');
+        pay.addEventListener('click', handleClick);
+
+        function handleClick() {
+            alert('支付');
+            // 解除绑定
+            // type 事件类型，事件名称
+            // listener 事件监听器  事件处理函数
+            // options 
+            pay.removeEventListener('click', handleClick);
+        }
+    </script>
+</body>
+</html>

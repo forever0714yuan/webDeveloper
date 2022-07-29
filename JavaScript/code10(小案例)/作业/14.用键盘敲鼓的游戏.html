@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用键盘敲鼓的游戏</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #666;
+        }
+
+        .music {
+            width: 1200px;
+            margin: 500px auto 0;
+        }
+
+        .music_list {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            list-style: none;
+        }
+
+        .music_list li {
+            border: 3px solid rgba(0, 0, 0, .5);
+            width: 80px;
+            justify-content: center;
+            flex-direction: column;
+            display: flex;
+            align-items: center;
+            margin: 0 10px 0 10px;
+        }
+
+        .music_list li.active {
+            background-color: #ff6700;
+            border-color: #fff;
+        }
+
+        .music_list li.active p {
+            color: #fff;
+        }
+
+        .music_list li h2 {
+            color: #fff;
+            margin: 10px 10px 10px;
+        }
+
+        .music_list li p {
+            color: orange;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="music">
+        <ul class="music_list">
+            <li>
+                <h2 class="A">A</h2>
+                <p>CLAP</p>
+            </li>
+            <li>
+                <h2 class="S">S</h2>
+                <p>HIHAT</p>
+            </li>
+            <li>
+                <h2 class="D">D</h2>
+                <p>KICK</p>
+            </li>
+            <li>
+                <h2 class="F">F</h2>
+                <p>OPENHAT</p>
+            </li>
+        </ul>
+    </div>
+    <script>
+        const musicList = document.querySelector('.music_list');
+
+
+        const HA = document.querySelector('.A');
+        const HS = document.querySelector('.S');
+        const HD = document.querySelector('.D');
+        const HF = document.querySelector('.F');
+
+        document.addEventListener('keydown', function (e) {
+            let strValue = e.key.toLowerCase();
+            switch (strValue) {
+                case 'a':
+                    HA.parentNode.classList.add('active');
+                    break;
+                case 's':
+                    HS.parentNode.classList.add('active');
+                    break;
+                case 'd':
+                    HD.parentNode.classList.add('active');
+                    break;
+                case 'f':
+                    HF.parentNode.classList.add('active');
+                    break;
+            }
+        })
+        document.addEventListener('keyup', function (e) {
+            let strValue = e.key.toLowerCase();
+            switch (strValue) {
+                case 'a':
+                    HA.parentNode.classList.remove('active');
+                    break;
+                case 's':
+                    HS.parentNode.classList.remove('active');
+                    break;
+                case 'd':
+                    HD.parentNode.classList.remove('active');
+                    break;
+                case 'f':
+                    HF.parentNode.classList.remove('active');
+                    break;
+            }
+        })
+    </script>
+</body>
+</html>

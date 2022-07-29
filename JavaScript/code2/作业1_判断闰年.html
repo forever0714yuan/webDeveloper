@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>判断闰年</title>
+</head>
+<body>
+    <script>
+        // 4. 输入年份，判断是否是闰年
+        //   ○ 年份能被4整除但是不能被100整除
+        //   ○ 年份能被400整除
+
+        // 1.输入年份，转换数值
+
+        let year = parseFloat(prompt('请您输入年份！'));
+        if (isNaN(year)) {
+            // 1.1 判断输入的数值类型
+            console.log('请输入数值！');
+        } else {
+            // 1.2 年份能被4整除但是不能被100整除
+            if (year % 4 === 0 && year % 100 !== 0) {
+                console.log('闰年！');
+            } else if (year % 400 === 0) {
+                console.log('闰年！');
+            } else {
+                console.log('平年！');
+            }
+        }
+    </script>
+</body>
+</html>

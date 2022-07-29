@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>jQuery 轮播图插件</title>
+  <link rel="stylesheet" href="./plugins/slick/slick.css" />
+  <link rel="stylesheet" href="./plugins/slick/slick-theme.css" />
+  <style>
+    body,
+    ul {
+      padding: 0;
+      margin: 0;
+    }
+
+    img {
+      vertical-align: middle;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    .slider {
+      width: 670px;
+      margin: 100px auto;
+
+      position: relative;
+    }
+
+    .slick-dots {
+      bottom: 6px;
+    }
+
+    .slick-dots li button:before,
+    .slick-dots li.slick-active button:before {
+      color: #fff;
+    }
+
+    /* .arrow {
+        display: none;
+      } */
+
+    .slider:hover .arrow {
+      display: block;
+    }
+
+    .arrow-left,
+    .arrow-right {
+      font-family: "SimSun", "宋体";
+      width: 30px;
+      height: 60px;
+      background-color: rgba(0, 0, 0, 0.1);
+      position: absolute;
+      top: 50%;
+      margin-top: -30px;
+      cursor: pointer;
+      text-align: center;
+      line-height: 60px;
+      color: #fff;
+      font-weight: 700;
+      font-size: 30px;
+      user-select: none;
+    }
+
+    .arrow-left:hover,
+    .arrow-right:hover {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .arrow-left {
+      left: 0;
+    }
+
+    .arrow-right {
+      right: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="slider">
+    <ul>
+      <li>
+        <a href="javascript:;">
+          <img src="./img/1.jpg" alt="" />
+        </a>
+      </li>
+      <li>
+        <a href="javascript:;">
+          <img src="./img/2.jpg" alt="" />
+        </a>
+      </li>
+      <li>
+        <a href="javascript:;">
+          <img src="./img/3.jpg" alt="" />
+        </a>
+      </li>
+      <li>
+        <a href="javascript:;">
+          <img src="./img/4.jpg" alt="" />
+        </a>
+      </li>
+      <li>
+        <a href="javascript:;">
+          <img src="./img/5.jpg" alt="" />
+        </a>
+      </li>
+      <li>
+        <a href="javascript:;">
+          <img src="./img/6.jpg" alt="" />
+        </a>
+      </li>
+    </ul>
+    <div class="arrow">
+      <span class="arrow-left">&lt;</span>
+      <span class="arrow-right">&gt;</span>
+    </div>
+  </div>
+
+  <script src="./jquery/jquery-3.6.0.js"></script>
+  <!-- 在 jQuery 之后引入 -->
+  <script src="./plugins/slick/slick.js"></script>
+  <script>
+    $(".slider ul").slick({
+      autoplay: true,
+      dots: true,
+      // arrows: false,
+      prevArrow: ".arrow-left",
+      nextArrow: ".arrow-right",
+    });
+  </script>
+</body>
+</html>

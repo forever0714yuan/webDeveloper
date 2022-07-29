@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浮动特点</title>
+    <style>
+        .w {
+            width: 800px;
+            height: 400px;
+            background-color: red;
+        }
+
+        .w .left {
+            width: 100px;
+            height: 100px;
+            /* 1.脱标 2.一行显示并且顶部对齐*/
+            float: left;
+            background-color: aqua;
+        }
+
+        .w .right {
+            width: 100px;
+            height: 100px;
+            float: left;
+            background-color: yellow;
+        }
+
+        .w .a {
+            width: 100px;
+            height: 100px;
+            /* float: left; */
+            text-align: center;
+            line-height: 100px;
+            background-color: brown;
+        }
+    </style>
+</head>
+<body>
+    <div class="w">
+        <div class="left"></div>
+        <div class="right"></div>
+        <a href="#" class="a">你好</a>
+    </div>
+</body>
+</html>

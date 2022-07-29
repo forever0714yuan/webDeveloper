@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作业3</title>
+</head>
+<body>
+    <script>
+        // 弹出一个输入框，让用户输入账号和密码（正确的账号是admin，密码是123456），如果用户输入正确，提示登录成功
+
+        let count = 0;
+
+        while (true) {
+            let username = prompt('请输入用户账号:');
+            let password = prompt('请输入密码:');
+
+            if (username === 'admin' && password === '123456') {
+                alert('登录成功！');
+                break;
+            } else if (username === null || password === null) {
+                // 点击取消
+                break;
+            } else {
+                // 如果输错3次，提示账号被冻结，不能再输入(使用 do...while 或者 while循环)
+                count++;
+                if (count === 3) {
+                    alert('您的账号已经被冻结，请联系客服人员！')
+                    break;
+                }
+                // 如果输入错误，提示继续输入
+                alert('登录失败，请重新输入！');
+            }
+        }
+
+
+
+    </script>
+</body>
+</html>

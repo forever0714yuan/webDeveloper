@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件委托</title>
+</head>
+<body>
+    <button id="btn">按钮</button>
+    <ul class="list">
+        <li>item1</li>
+        <li>item2</li>
+        <li class=" box item">item3</li>
+        <li class=" li item">item4</li>
+        <li>item5</li>
+        <li>item6</li>
+        <li>item7</li>
+        <li>item8</li>
+        <li>item9</li>
+        <li>item10</li>
+    </ul>
+    <script>
+        const list = document.querySelector('.list');
+
+        const btn = document.querySelector('#btn');
+        btn.onclick = function () {
+            const li = document.createElement('li');
+
+            list.append(li);
+            li.textContent = 'new';
+            li.className = 'item';
+        }
+
+
+        // 事件委托好处
+        // 1.如果要给很多的子元素注册事件，传统的方式需要遍历元素再注册事件
+        // 而事件委托只需要给父元素注册事件就ok，提升了效率
+        // 2.动态创建的子元素，也不再需要单独注册事件
+        list.addEventListener('click', function (e) {
+
+            // 判断子元素 e.target 是否是我们想要的子元素
+
+            // document.querySelector().matches
+
+            // 判断DOM对象是否匹配指定的选择器
+            if (e.target.mamatches('.item')) {
+                console.log(e.target.textContent);
+            }
+        }, false)
+    </script>
+</body>
+</html>

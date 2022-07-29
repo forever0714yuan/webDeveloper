@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 在当前元素最前面添加内容 */
+        /* 伪元素是行内元素0 */
+        .box::before {
+            content: '我';
+        }
+
+        .box::after {
+            content: '好人';
+        }
+    </style>
+</head>
+<body>
+    <div class="box">是</div>
+</body>
+</html>

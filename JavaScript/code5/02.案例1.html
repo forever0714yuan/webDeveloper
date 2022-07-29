@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>案例——求任意圆的面积</title>
+</head>
+<body>
+    <script>
+        // 求任意圆面积
+        const PI = 3.14159;
+
+        function getRoundArea(r, PI) {
+            return PI * r * r;
+        }
+        //求两个数中的最大值
+        function getMax(n, m) {
+            if (n > m) {
+                return n;
+            } else {
+                return m;
+            }
+        }
+        // 求三个数的最大值
+        console.log(getMax(20, getMax(5, 10)));
+
+        // 判断一个数字是否是水仙花数
+        function isDaffodil(num) {
+
+            let bai = parseInt(num / 100);
+
+            let shi = parseInt(num / 10 % 10);
+
+            let ge = parseInt(num % 10);
+
+            if (num === (Math.pow(bai, 3) + Math.pow(shi, 3) + Math.pow(ge, 3))) {
+                return num
+            }
+        }
+
+        console.log(isDaffodil(153));;
+        // 求数组最大数
+        let array = [205, 6464, 808, 546, 250, 220];
+
+        function getMaxArray(array) {
+            let Max = 0;
+            for (let i = 0; i < array.length; i++) {
+                if (array[i] > Max) {
+                    Max = array[i];
+                }
+            }
+            return Max;
+        }
+        console.log(getMaxArray(array));;
+    </script>
+</body>
+</html>

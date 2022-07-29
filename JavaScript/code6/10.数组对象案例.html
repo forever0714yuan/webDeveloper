@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组对象案例</title>
+</head>
+<body>
+    <script>
+        // ● 将一个字符串数组输出为|分割的形式，比如“刘备|张飞|关羽”
+        let array = ['刘备', '张飞', '关羽'];
+        let newArray = array.join('|');
+        console.log(newArray);
+        // ● 将一个字符串数组的元素的顺序进行反转。['a', 'b', 'c', 'd'] -> [ 'd', 'c', 'b', 'a']。
+        let array1 = ['a', 'b', 'c', 'd'];
+        let newArray1 = array1.reverse();
+        console.log(newArray1);
+        // ● 工资的数组[1500, 1200, 2000, 2100, 1800],把工资超过2000的删除
+        let array2 = [1500, 1200, 2000, 2100, 3000, 6000, 1800];
+        let arr2 = [];
+        array2.forEach((item, index, arr) => {
+            if (item < 2000) {
+                arr2.push(item)
+            }
+        })
+        console.log(arr2);
+        // ● ['c', 'a', 'z', 'a', 'x', 'a']找到数组中每一个a出现的位置
+        let array3 = ['c', 'a', 'z', 'a', 'x', 'a'];
+        array3.forEach((item, index) => {
+            if (item === 'a') {
+                console.log('a出现的位置是：' + index);
+            }
+        })
+        // ● 去掉一个数组的重复元素，['c', 'a', 'z', 'a', 'x', 'a']
+        let array4 = ['c', 'a', 'z', 'a', 'x', 'a'];
+
+        // ● 对数组元素进行排序
+        let array5 = [1, 4, 2, 5, 3, 34, 32];
+        array5.sort((a, b) => {
+            return a - b;
+        })
+        console.log(array5);
+
+    </script>
+</body>
+</html>

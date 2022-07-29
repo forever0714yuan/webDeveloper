@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    
+    img {
+      vertical-align: top;
+    }
+    
+    .top {
+      margin: 0 auto;
+      width: 1423px;
+    }
+    
+    .nav {
+      width: 1423px;
+      margin: 0 auto;
+      /*text-align: center;*/
+    }
+    
+    img {
+      width: 100%;
+    }
+    
+    .main {
+      margin: 0 auto;
+      width: 1000px;
+      margin-top: 10px;
+    }
+    
+    .fixed {
+      position: fixed;
+      top: 0;
+      left: 50%;
+      margin-left: -712px;
+      z-index: 20;
+    }
+
+    /* 回到顶部 */
+    .toTop {
+      position: fixed;
+      width: 50px;
+      height: 50px;
+      background: #604f4d;
+      color:white;
+      bottom: 20px;
+      right: 0px;
+      font:bold 20px/50px '宋体';
+      text-align: center;
+      user-select: none;
+      cursor: pointer;
+      display: none;
+    }
+    .toTop::after {
+      content: '顶部';
+      font:normal 14px/50px '宋体';
+      position: absolute;
+      top:0;
+      right:-60px;
+      width:60px;
+      height: 50px;;
+      background: #604f4d;
+      transition: right 0.2s;
+    }
+    .toTop span {
+      position: absolute;
+      z-index: 999;
+      height: 50px;
+      width: 50px;
+      left:0;
+      top:0;
+      transform: rotateZ(-90deg);
+      background: #604f4d;
+    }
+    .toTop:hover span{
+      background: red;
+    }
+    .toTop:hover::after{
+      right: 50px;
+      background: red;
+    }
+
+  </style>
+</head>
+<body>
+<div class="top" id="topPart">
+  <img src="images/top.png" alt=""/>
+</div>
+<div class="nav" id="navBar">
+  <img src="images/nav.png" alt=""/>
+</div>
+<div class="main" id="mainPart">
+  <img src="images/main.png" alt=""/>
+</div>
+<!-- 回到顶部 -->
+<div class="toTop">
+  <span>&gt;</span>
+</div>
+
+<script>
+  // 1.获得要操作的对象
+  const topPart = document.getElementById('topPart');
+  const navBar = document.getElementById('navBar');
+  const mainPart = document.getElementById('mainPart');
+  
+  // 回到顶部
+  const toTop = document.querySelector('.toTop');
+  // 2.给事件源注册事件
+  window.onscroll = function (){
+    const scrollTop = document.documentElement.scrollTop;
+    if (scrollTop > topPart.offsetHeight){
+      navBar.classList.add('fixed');
+      mainPart.style.paddingTop = navBar.offsetHeight + 'px';
+
+      toTop.style.display = 'block';
+    } else {
+      navBar.classList.remove('fixed');
+      mainPart.style.paddingTop =  '0px';
+
+      toTop.style.display = 'none';
+    }
+  }
+
+  // 给toTop注册onclick事件，回到顶部
+  toTop.onclick = function () { 
+    // 把scrollTop设置为0
+    window.scroll({
+      top: 0,
+      behavior: 'smooth'
+    })
+  };
+</script>
+</body>
+</html>

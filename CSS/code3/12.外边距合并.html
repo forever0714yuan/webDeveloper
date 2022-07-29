@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>外边框</title>
+    <style>
+        /* 在真实开发网站中，我们会把所有元素自带的margin和padding设置为0 */
+
+        div {
+            width: 100px;
+            height: 100px;
+        }
+
+        /* 兄弟元素相邻时 在垂直方向设置margin-bottom margin-top
+            时，他们之间的距离不是margin之和，而是显示两个之中较大的。
+        */
+
+        /* 
+            解决方案：只给一个盒子添加margin就行了
+        */
+
+        .box1 {
+
+            background-color: aquamarine;
+            margin-bottom: 50px;
+        }
+
+        .box2 {
+            /* margin-top: 30px; */
+            background-color: red;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>history</title>
+</head>
+<body>
+    <a href="./07.history_2.html">某个页面</a>
+    <button id="forward">前进</button>
+    <button id="back">后退</button>
+    <script>
+        const forward = document.querySelector('#forward')
+        const back = document.querySelector('#back');
+
+        forward.onclick = function () {
+            window.history.forward();
+        }
+
+        back.onclick = function () {
+            window.history.back()
+        }
+    </script>
+</body>
+</html>

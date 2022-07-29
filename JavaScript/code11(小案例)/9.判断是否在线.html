@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>判断是否在线</title>
+</head>
+<body>
+    <script>
+        window.addEventListener('online', updateOnlineStatus);
+        window.addEventListener('offline', updateOnlineStatus);
+
+        function updateOnlineStatus() {
+            // document.title 改变浏览器标签的标题
+            document.title = navigator.onLine ? '在线' : '离线';
+        }
+
+        updateOnlineStatus();
+    </script>
+</body>
+</html>

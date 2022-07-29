@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>优先级</title>
+    <style>
+        /* 继承/通配符选择器：权重极低，可以看做是0 */
+        body {
+            color: red;
+        }
+
+        /* 标签选择器 权重 1  */
+        /* 当权重一样是 采用就近原则 */
+        div {
+            color: aqua;
+        }
+
+        /* 类选择器 权重10 */
+        .box {
+            color: blueviolet;
+        }
+
+        /* id选择器  权重100 */
+        #box {
+            color: deeppink;
+        }
+
+        /* 权重 110 */
+        .cls #box {
+            color: pink;
+        }
+
+        /* 行内样式1000 */
+
+        /* !important 无穷大 */
+    </style>
+</head>
+<body>
+    <div class="cls">
+        <div class="box" id="box" style="color: yellow;">div</div>
+    </div>
+</body>
+</html>

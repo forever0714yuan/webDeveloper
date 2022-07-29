@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<style type="text/css">
+			div {
+				width: 100px;
+				height: 100px;
+				background-color: #FFA500;
+				margin-top: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div>1</div>
+		<div>2</div>
+		<div>3</div>
+		<script src="jquery/jquery-3.6.0.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			// jQuery中的方法，大部分都是隐式迭代
+			// click 方法中会对匹配到的dom元素遍历 / 给每一个div注册点击事件
+			$('div').click(function(){
+				// 事件处理函数
+				console.log('click');
+				// 此处的this是dom对象，是当前触发事件的元素
+				console.log(this);
+			});
+			$('div').mouseover(function() {
+				console.log(;mouseover);
+			})
+			
+		</script>
+	</body>
+</html>

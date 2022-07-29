@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>仿siri</title>
+</head>
+<body>
+    <script>
+        let running = true;
+
+        while (running) {
+            let msg = prompt('您好，我是您的私人助理 siri \n' +
+                '请输入编号或《关键词》选择功能，按q退出 \n' +
+                '1. 计算《总和》\n' +
+                '2. 获取《时间》\n' +
+                '3. 讲个《笑话》\n' +
+                '4. 来个《抽奖》'
+            );
+
+            switch (msg) {
+                case '1':
+                case '总和':
+                    // console.log('计算总和');
+                    alert('总和' + sumFnc())
+                    break;
+                case '2':
+                case '时间':
+                    alert('当前时间:' + time())
+                    // console.log('获取当前时间');
+                    break;
+                case '3':
+                case '笑话':
+                    // speak(jokes());
+                    alert(jokes());
+                    // alert(speak(jokes()))
+                    // console.log('随机讲笑话');
+                    break;
+                case '4':
+                case '抽奖':
+                    // console.log('随机抽奖');
+                    lottery();
+                    break;
+                case 'q':
+                case null:
+                    running = false;
+                    break;
+                default:
+                    console.log('您说什么，我听不太懂');
+                    break;
+            }
+        }
+        // 计算总和 
+        function sumFnc() {
+            let input = prompt('请输入您想累加的数字，以英文逗号隔开!');
+            // 标记用户是否输入了其他字符在里面
+            let fig = false;
+            // 求和
+            let sum = 0;
+            // 分隔成数组
+            let arr = input.split(',');
+
+            arr.forEach((item) => {
+                if (isNaN(parseFloat(item))) {
+                    fig = true;
+                } else {
+                    sum += parseFloat(item);
+                }
+            });
+
+            if (fig) {
+                alert('您输入的值有误，请重新输入！');
+            } else {
+                return sum;
+            }
+        }
+        // 获取时间
+        function time() {
+            let date = new Date();
+
+            let nowTime = '';
+            // 获取年分
+            let year = date.getFullYear();
+            // 获取月份
+            // 月份是 0 -11 
+            let month = date.getMonth() + 1;
+            //    记住 这种情况用三元运算符 啊啊啊！！！！ 记住了
+            // 不要再用if-else了 憨憨 
+            month = month < 10 ? '0' + month : month;
+            // 获取日
+            let day = date.getDate();
+            day = day < 10 ? '0' + day : day;
+
+            // 获取小时
+            let hours = date.getHours();
+            hours = hours < 10 ? '0' + hours : hours;
+
+            // 获取分钟
+            let minutes = date.getMinutes();
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+
+            // 获取秒钟
+            let seconde = date.getSeconds();
+            seconde = seconde < 10 ? '0' + seconde : seconde;
+
+            nowTime = year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconde;
+            return nowTime;
+        }
+        //  讲笑话
+        function jokes() {
+            let jokes = [
+                '每天把牢骚拿出来晒晒太阳，心情就不会缺钙',
+                '明明是傻，却说是逆向思维。',
+                '第八套广播体操，我练了三年了，什么时候能打通任督二脉啊。',
+                '“师傅，教我分身术吧。”“首先，你要有把电锯。。。”',
+                'a：你说我这穷日子过到啥时侯是个头啊？b：那得看你能活多久了。',
+                '每次看古装片听人说：愿闻其翔，都觉得怪怪的。。。',
+                '“我有一个看家本领。” “什么？” “看家。”',
+                '今天客户来银行取钱，坐下一句话说的我石化了：“你好，我死期到了。”',
+                '做人最失败的莫过于唐僧，身边的人不管是敌是友都想送你上西天。',
+                '那天在家发呆呢，突然飞来一只小鸟儿，撞窗户上了，我想：上帝在玩“愤怒的小鸟”吧，可是，不对碍…上帝觉得我是猪？？？'
+            ];
+            let random = parseInt(Math.random() * jokes.length);
+
+
+            return jokes[random];
+        }
+        //随机抽奖
+        function lottery() {
+            let index = parseInt(Math.random() * 6 + 1);
+
+            switch (index) {
+                case 1:
+                    alert('恭喜您，抽中一等奖！')
+                    break;
+                case 2:
+                    alert('恭喜您，抽中二等奖！')
+                    break;
+                case 3:
+                    alert('恭喜您，抽中三等奖！')
+                    break;
+                default:
+                    alert('很遗憾！未中奖！')
+                    break;
+            }
+        }
+
+        // 发声
+        function speak(joke) {
+            let u = new SpeechSynthesisUtterance(joke);
+            speechSynthesis.speak(u);
+        }
+    </script>
+
+    <!-- <button onclick="speak(jokes())">按钮</button> -->
+</body>
+</html>

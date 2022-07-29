@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>过渡动画</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: antiquewhite;
+            /* 谁想执行动画 transition 设置给谁 */
+
+            /* 过渡动画:要执行的动画属性 动画持续时间 动画曲线 延迟执行的时间 */
+            /* transition: width 2s ease 2s; */
+
+            /* transition: width 2s, height 6s; */
+
+            /* 多个属性简写 */
+            transition: all 2s;
+        }
+
+        .box:hover {
+            width: 500px;
+            height: 800px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

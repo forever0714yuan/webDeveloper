@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sort</title>
+</head>
+<body>
+    <script>
+        let arr = [5, 2, 4, 9, 1, 21, 22, 34];
+
+        // 默认排序是从小到大（不带参数的情况下）
+        // arr.sort()
+
+        // console.log(arr);
+
+        // sort()的参数是一个函数
+        // 这个函数的参数是数组中相邻的两个数
+        // 这个函数的返回结果
+        arr.sort(function (a, b) {
+            return a - b;
+        })
+
+        console.log(arr);
+
+    </script>
+</body>
+</html>

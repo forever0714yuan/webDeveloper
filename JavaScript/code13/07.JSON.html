@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>json</title>
+</head>
+<body>
+    <script>
+        // json 是一种字符串的表示方法
+
+        const jsonstr = '{"name":"zs","age":18}';
+        const jsonstr1 = '["a","b","c"]';
+
+        // 把json 形式的字符串转换成js中的对象
+        // html5以后，有了json对象，是js中的对象
+
+
+        // 把一个json 字符串转换成js格式的对象
+        const parson = JSON.parse(jsonstr);
+        console.log(jsonstr);
+        console.log(parson);
+        console.log(parson.name);
+
+        let todos = [
+            { text: '吃饭', done: true },
+            { text: '睡觉', done: false },
+            { text: '打豆豆', done: false }
+        ]
+        // 把一个js对象转换成josn格式的字符串
+        const str = JSON.stringify(todos)
+        console.log(str);
+    </script>
+</body>
+</html>

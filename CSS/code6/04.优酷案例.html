@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>优酷案例</title>
+    <style>
+        body {
+            background-color: #16161a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            color: #e1e1e1;
+            text-decoration: none;
+        }
+
+        .w {
+            width: 1230px;
+            height: 162px;
+            margin: 200px auto;
+        }
+
+        .w ul li {
+            float: left;
+            /* 相对定位 */
+            position: relative;
+            width: 195px;
+            margin-right: 12px;
+        }
+
+        .w ul li .tip {
+            /* 绝对定位 相对最近的拥有定位的父元素定位
+               给了定位后，也可以设置大小
+            */
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 2px 4px;
+            font-size: 12px;
+            /* 设置圆角 */
+            border-top-right-radius: 7px;
+            border-bottom-left-radius: 7px;
+        }
+
+        .w ul li .c1 {
+            color: #fff;
+            background-color: #ff008c;
+        }
+
+        .w ul li .vip {
+            color: #6c3b3a;
+            background-color: #ffdd9a;
+        }
+
+        .w ul li a {
+            font-size: 16px;
+        }
+
+        .w li img {
+            width: 100%;
+            border-radius: 7px;
+        }
+
+        .w ul li h3 {
+            margin-top: 5px;
+        }
+
+        .w p {
+            margin-top: 5px;
+            font-size: 14px;
+            color: #696f71;
+        }
+
+        img {
+            /* display: block; */
+            /* 解决图片底部多几像素的问题 */
+            vertical-align: bottom;
+        }
+
+        .w ul li.last {
+            margin-right: 0;
+        }
+
+        .clearfix::after {
+            content: '';
+            display: block;
+            clear: both;
+            height: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="w clearfix">
+        <ul>
+            <li>
+                <img src="./images/jzg.jpg" alt="弘扬社会主义核心价值观" title="弘扬社会主义核心价值观">
+                <h3>7
+                    <a href="#">
+                        弘扬社会主义核心价值观
+                    </a>
+                </h3>
+                <p>共筑中国梦</p>
+            </li>
+            <li>
+                <img src="./images/quanquan.jpg" alt="铁拳英雄👊拳拳到肉" title="铁拳英雄👊拳拳到肉">
+                <h3>
+                    <a href="#">
+                        铁拳英雄👊拳拳到肉
+                    </a>
+                </h3>
+                <p>热血青年用拳脚守护家园</p>
+            </li>
+            <li>
+                <img src="./images/haomen.jpg" alt="家族💥豪门厮杀" title="家族💥豪门厮杀">
+                <h3>
+                    <a href="#">
+                        家族💥豪门厮杀
+                    </a>
+                </h3>
+                <p>贾洛仪流产豪门长孙梦碎</p>
+                <span class="tip c1">独播</span>
+            </li>
+            <li>
+                <img src="./images/xinyitian.jpg" alt="新倚天下⚔️武侠经典" title="新倚天下⚔️武侠经典">
+                <h3>
+                    <a href="#">
+                        新倚天下⚔️武侠经典
+                    </a>
+                </h3>
+                <p>林峯文咏珊掀江湖风云</p>
+                <span class="tip vip">VIP半价</span>
+            </li>
+            <li>
+                <img src="./images/yongganxin.jpg" alt="勇敢的心2💥残忍" title="勇敢的心2💥残忍">
+                <h3>
+                    <a href="#">
+                        勇敢的心2💥残忍
+                    </a>
+                </h3>
+                <p>热血青年遭侵略者残忍屠杀</p>
+            </li>
+            <li class="last">
+                <img src="./images/007.png" alt="007💃性感特工" title="007💃性感特工">
+                <h3>
+                    <a href="#">
+                        007💃性感特工
+                    </a>
+                </h3>
+                <p>邦女郎霸气优雅吸睛无数</p>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

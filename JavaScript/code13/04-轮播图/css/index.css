@@ -1,0 +1,110 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img, input {
+  border: 0 none;
+  outline-style: none;
+  padding: 0;
+  margin: 0;
+  vertical-align: middle;
+}
+
+/* 轮播图样式 */
+.banner-center {
+  width: 720px;
+  height: 454px;
+  margin: 100px auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.banner-center img {
+  width: 720px;
+  height: 454px;
+}
+
+/* 轮播项容器 */
+.banner-center .content {
+  width: 4320px;
+  height: 454px;
+  position: absolute;
+}
+
+.banner-center .content .item {
+  float: left;
+}
+
+/* 左右按钮 */
+.banner-center .btn {
+  width: 30px;
+  height: 50px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(41, 34, 34, 0.4);
+  text-align: center;
+  font: bold 18px/50px '宋体';
+  color: #fff;
+  display: none;
+}
+
+.banner-center .btn-right {
+  right: 0;
+}
+
+.banner-center:hover .btn {
+  display: block;
+}
+
+/* 小点样式 */
+.banner-center li {
+  width: 8px;
+  height: 8px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  float: left;
+  margin-left: 20px;
+  position: relative;
+}
+
+.banner-center li:first-child {
+  margin-left: 0;
+}
+
+.banner-center li::after {
+  width: 16px;
+  height: 16px;
+  background: rgba(255, 255, 255, 0.6);
+  position: absolute;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  content: '';
+  display: none;
+}
+
+.banner-center li.active {
+  background: #fff;
+}
+
+.banner-center li.active::after {
+  display: block;
+}
+
+.banner-center ul {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}

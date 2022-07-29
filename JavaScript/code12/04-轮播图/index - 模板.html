@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/index.css">
+
+</head>
+
+<body>
+  <div class="banner-center">
+    <!-- 轮播项 -->
+    <div class="content">
+      <!-- 最后一个轮播项 -->
+      <div class="item">
+        <a href="#">
+          <img src="images/banner4.jpg">
+        </a>
+      </div>
+      <!-- 第一个轮播项 -->
+      <div class="item">
+        <a href="#">
+          <img src="images/banner1.jpg">
+        </a>
+      </div>
+      <div class="item">
+        <a href="#">
+          <img src="images/banner2.jpg">
+        </a>
+      </div>
+      <div class="item">
+        <a href="#">
+          <img src="images/banner3.jpg">
+        </a>
+      </div>
+      <div class="item">
+        <a href="#">
+          <img src="images/banner4.jpg">
+        </a>
+      </div>
+      <!-- 第一个轮播项 -->
+      <div class="item">
+        <a href="#">
+          <img src="images/banner1.jpg">
+        </a>
+      </div>
+    </div>
+    <!-- 左按钮 -->
+    <a class="btn btn-left" href="javascript:">&lt;</a>
+    <!-- 右按钮 -->
+    <a class="btn btn-right" href="javascript:">&gt;</a>
+    <!-- 一组小点按钮 -->
+    <ul class="controls">
+      <li class="active"></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+
+  <script>
+    // 获取元素
+    const bannerCenter = document.querySelector('.banner-center');
+    const content = document.querySelector('.content');
+    const btnRight = document.querySelector('.btn-right');
+    const btnLeft = document.querySelector('.btn-left');
+    const controls = document.querySelector('.controls');
+
+
+    // 获取图片的大小
+    const imgWidth = bannerCenter.offsetWidth;
+    let index = 1;
+    content.style.transform = 'translateX(' + -imgWidth + 'px)';
+
+    // 判断是否在执行动画
+    let isRunning = false;
+
+    // 定义一个变量，记录当前显示的是第几张图片
+    // 点击下一张
+    btnRight.onclick = function () {
+      // 点击按钮判断动画是否正在执行
+      if (isRunning) {
+        return;
+      }
+      // 让原来的圆点取消高亮
+      controls.children[index - 1] && controls.children[index - 1].classList.remove('active');
+      // index++
+      index++;
+      // 让content往前移动 -index*imgWidth
+      content.style.transform = 'translateX(' + -index * imgWidth + 'px)';
+      // 执行过渡动画
+      content.style.transition = 'transform .5s';
+
+      // 设置当前的圆点高亮(分页)
+      controls.children[index - 1] && controls.children[index - 1].classList.add('active');
+
+      // 当显示的是复制的第一张图片（也就是列表真正的最后一张图片）
+      // 这个时候，让第一个原点高亮
+      if (index === controls.childElementCount + 1) {
+        controls.children[0].classList.add('active');
+      }
+    };
+
+
+    // transitionstart 过渡动画执行开始触发的事件
+    content.addEventListener('transitionstart', function () {
+      isRunning = true;
+    })
+    // transitionend 过渡动画执行结束触发的事件
+    content.addEventListener('transitionend', function () {
+      isRunning = false;
+      // 如果当前是最后一张图片（复制的第一张图片）
+      // 应该在动画结束后，偷偷的切换到真正的第一张图片
+      if (index === controls.childElementCount + 1) {
+        index = 1;
+        content.style.transform = 'translateX(' + -index * imgWidth + 'px)';
+        content.style.transition = 'none';
+      }
+
+      // 如果当前是最后一张图片（复制的最后一张图片）
+      // 应该在动画结束后，偷偷的切换到真正的第一张图片
+      if (index === 0) {
+        index = 4;
+        content.style.transform = 'translateX(' + -index * imgWidth + 'px)';
+        content.style.transition = 'none';
+      }
+    })
+
+
+    // 点击上一张
+    btnLeft.onclick = function () {
+      // 点击按钮判断动画是否正在执行
+      if (isRunning) {
+        return;
+      }
+      // 让原来的圆点取消高亮
+      controls.children[index - 1] && controls.children[index - 1].classList.remove('active');
+      // index--
+      index--;
+      // 让content往前移动 -index*imgWidth
+      content.style.transform = 'translateX(' + -index * imgWidth + 'px)';
+      // 执行过渡动画
+      content.style.transition = 'transform .5s';
+
+      // 设置当前的圆点高亮(分页)
+      controls.children[index - 1] && controls.children[index - 1].classList.add('active');
+
+      // 当显示的是复制的最后一张图片（也就是列表真正的最后一张图片）
+      // 这个时候，让第一个原点高亮
+      if (index === 0) {
+        controls.children[controls.childElementCount - 1].classList.add('active');
+      }
+    };
+    // 切换小圆点的状态(分页)
+    // 页面加载完毕，轮播图自动播放
+
+    let timerId = setInterval(function () {
+      // 触发按钮的点击事件
+      btnRight.click()
+    }, 3000);
+    // 鼠标放到轮播图上，暂停自动播放
+
+    bannerCenter.onmouseover = function () {
+      // 鼠标经过，停止定时器
+      clearInterval(timerId);
+    }
+
+    bannerCenter.onmouseout = function () {
+      // 鼠标经过，开启定时器
+      timerId = setInterval(function () {
+        // 触发按钮的点击事件
+        btnRight.click()
+      }, 3000);
+    }
+  </script>
+</body>
+
+</html>

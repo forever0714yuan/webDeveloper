@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象方法</title>
+</head>
+<body>
+    <script>
+        // 对象的属性和方法统称为对象的成员
+
+        // let dog = {
+        //     name: 'BYD',
+        //     bark: function () {
+        //         console.log('汪汪汪');
+        //     },
+        //     eat: function () {
+        //         console.log('啃骨头');
+        //     }
+        // }
+        // 调用方法
+        // dog.bark();
+        // dog['eat']();
+
+        let dog = {
+            name: 'BYD',
+            bark: function () {
+                console.log(this.name + '汪汪汪');
+            },
+            eat: function () {
+                console.log('啃骨头');
+            }
+        }
+        dog.bark();
+    </script>
+</body>
+</html>

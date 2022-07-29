@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作业3</title>
+</head>
+<body>
+    <script>
+        // 输入一个年份，判断是否是闰年[闰年：能被4整数并且不能被100整数，或者能被400整数] 
+
+        function isLeapYear(year) {
+            let isYear = ((year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)) ? true : false;
+            if (isYear) {
+                return '是闰年';
+            } else {
+                return '不是闰年'
+            }
+        }
+        console.log(isLeapYear(2009));
+        console.log(isLeapYear(2008));
+        console.log(isLeapYear(2012));
+        console.log(isLeapYear(2022));
+    </script>
+</body>
+</html>

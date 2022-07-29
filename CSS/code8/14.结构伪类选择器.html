@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>结构伪类选择器</title>
+    <style>
+        /* 获取第一个li子元素 */
+        /* .list li:first-child {} */
+
+        /*  获取最后一个子元素*/
+        /* .list li:last-child {} */
+
+        /*  */
+
+        /* .list li:nth-child(){
+
+        } */
+
+        /* 隔行变色 */
+        /* 偶数行 */
+        .list li:nth-child(even) {}
+
+        /* 奇数行 */
+        .list li:nth-child(odd) {}
+
+        /* 偶数 */
+        /* n从0开始变换 把结果计算出来，如果在1-10编号范围内
+
+        找到匹配编号的元素
+
+        */
+        .list li:nth-child(2n) {}
+
+        /* 奇数 */
+        .list li:nth-child(2n+1) {}
+
+        /* 匹配前3个li */
+        .list li:nth-child(-n+3) {}
+
+        /* 匹配从第三个开始的元素 */
+        .list li:nth-child(n+3) {}
+    </style>
+</head>
+<body>
+    <ul class="list">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+    </ul>
+</body>
+</html>

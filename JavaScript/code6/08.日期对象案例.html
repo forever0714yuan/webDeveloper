@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日期对象案例</title>
+</head>
+<body>
+    <script>
+        // ● 写一个函数，格式化日期对象，返回yyyy-MM-dd HH:mm:ss的形式
+        function time(date) {
+
+
+            // 年份
+            let year = date.getFullYear();
+            // 月份
+            let month = date.getMonth() + 1;
+            // 日
+            let day = date.getDate();
+            // 时
+            let hours = date.getHours() < 10 ? '0' + date.getHours() : date.getHours();
+            // 分
+            let minutes = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes();
+            // 秒
+            let secondes = date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds();
+
+            return year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + secondes
+        }
+        // ● 计算两个日期的时间差，返回相差的天/时/分/秒
+        function differenceTime(start, end) {
+
+            // 隐式转换为毫秒值，再相减
+            // 获取时间差，是毫秒值
+            let difference = start - end;
+
+            console.log(difference);
+
+            // 转换成毫秒
+            difference = difference / 1000;
+
+            // 把相差的秒数转换
+            // 天
+            let day = Math.floor(difference / 60 / 60 / 24);
+            // 小时
+            let hours = Math.floor(difference / 60 / 60 % 60);
+            // 分钟
+            let minutes = Math.floor(difference / 60 % 60);
+            // 秒
+            let secondes = Math.floor(difference % 60);
+            return {
+                day,
+                hours,
+                minutes,
+                secondes
+            }
+        }
+        let start = new Date(2022, 6, 12, 9, 52, 30);
+        let end = new Date();
+        console.log(differenceTime(start, end));
+    </script>
+</body>
+</html>

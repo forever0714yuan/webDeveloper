@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <p>相册</p>
+    <div id="imagehallery">
+        <a href="#">
+            <img src="./image/mv2.jpg" alt="">
+        </a>
+        <a href="#">
+            <img src="./image/mv2.jpg" alt="">
+        </a>
+        <a href="#">
+            <img src="./image/mv2.jpg" alt="">
+        </a>
+    </div>
+    <p>美女</p>
+    <script>
+        let imagehallery = document.querySelector('#imagehallery');
+        // console.log(imagehallery.childNodes);
+
+        // 获取属性节点
+        // imagehallery.getAttributeNode('id');
+
+        // 遍历所有子节点
+        // imagehallery.childNodes.forEach((node) => {
+        //     // 判断是否是元素节点
+        //     if (node.nodeType === 1) {
+        //         console.log(node);
+        //     }
+        // })
+
+        // 获取子元素
+        console.log(imagehallery.children);
+        // 获取子元素的数量
+        console.log(imagehallery.childElementCount);
+
+
+        //Array.from 把伪数组转换为数组 
+        let arrychild = Array.from(imagehallery.children);
+
+        console.log(arrychild);
+
+        // 返回下一个兄弟节点
+        let nextNode = imagehallery.nextSibling;
+
+        console.log(nextNode);
+        // 返回上一个兄弟节点
+        let prevNode = imagehallery.previousSibling;
+
+        console.log(prevNode);
+        // 返回当前节点的上一个兄弟元素
+        let nextElementSibling = imagehallery.nextElementSibling;
+        console.log(nextElementSibling);
+
+    </script>
+</body>
+</html>

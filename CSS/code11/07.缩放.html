@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>缩放</title>
+    <style>
+        img {
+            margin: 100px;
+            transition: transform 2s;
+
+            /* 改变缩放的中心点 */
+
+            transform-origin: left top;
+        }
+
+        img:hover {
+            /* 缩放 */
+            transform: scale(1.5);
+        }
+    </style>
+</head>
+<body>
+    <img src="./images/child.gif" alt="">
+</body>
+</html>

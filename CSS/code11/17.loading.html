@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background-color: #ed5565;
+        }
+
+        .box {
+            width: 60px;
+            height: 15px;
+            margin: 100px;
+        }
+
+        .box div {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            background-color: #fff;
+            border-radius: 50%;
+            /* 动画 */
+            animation: anmate 0.7s linear infinite;
+        }
+
+        .box div:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .box div:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .box div:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        /* 动画序列 */
+        @keyframes anmate {
+            30% {
+                transform: scale(0.3);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</body>
+</html>

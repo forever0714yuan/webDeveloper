@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>轮播图</title>
+    <style>
+        /* 初始化 */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .swiper {
+            width: 1226px;
+            height: 460px;
+            margin: 0 auto;
+            /* 超出的内容不显示 */
+            overflow: hidden;
+            position: relative;
+        }
+
+        .swiper ul {
+            width: 3678px;
+            height: 460px;
+            /* 绝对定位 */
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .swiper ul li {
+            float: left;
+        }
+
+        .swiper ul li a img {
+            width: 1226px;
+            height: 460px;
+        }
+
+        /* 上一张 下一张 */
+
+        .swiper .btn {
+            display: inline-block;
+            height: 68px;
+            width: 41px;
+            /* 垂直居中 */
+            position: absolute;
+            top: 50%;
+            margin-top: -34px;
+            /* 设置背景图片 */
+            background: url(./images/icon-slides.png) no-repeat -83px 0;
+        }
+
+        .swiper .pre {
+            background-position: -83px 0;
+            left: 0;
+        }
+
+        .swiper .pre:hover {
+            background-position: 0 0;
+        }
+
+        .swiper .next {
+            background-position: -125px 0;
+            right: 0;
+        }
+
+        .swiper .next:hover {
+            background-position: -42px 0;
+        }
+
+        .swiper .page {
+            position: absolute;
+            width: 80px;
+            bottom: 20px;
+            left: 50%;
+            margin-left: -40px;
+            text-align: center;
+        }
+
+        .swiper .page a {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            border: 2px solid #68707b;
+            background-color: #303e3b;
+            border-radius: 50%;
+        }
+
+        .swiper .page .active {
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="swiper">
+        <ul>
+            <li>
+                <a href="#">
+                    <img src="./images/lunbo1.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./images/lunbo2.png" alt=""></a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./images/lunbo3.png" alt=""></a>
+            </li>
+        </ul>
+        <!-- 上一张 -->
+        <a href="#" class="btn pre"></a>
+        <!-- 下一张 -->
+        <a href="#" class="btn next"></a>
+        <!-- 分页 -->
+        <div class="page">
+            <a href="#" class="active"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+        </div>
+    </div>
+</body>
+</html>

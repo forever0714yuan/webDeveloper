@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 当有一个条件满足的时候执行对应的代码，并且多分支语句执行结束
+        // 其他条件不再执行 
+
+        //○ 用户输入成绩，判断输入的是否是数字如果不是提示用户输出正确的成绩。
+
+        let score = parseFloat(prompt('请您输入成绩！'));
+
+
+        // 判断用户输入的是否是数字
+        if (isNaN(score)) {
+            console.log("请您输入合法的成绩！");
+        } else {
+            if (score >= 0 && score < 60) {
+                // ■ 成绩在[0, 60)之间，输出差
+                console.log('差！');
+            } else if (score >= 60 && score < 70) {
+                // ■ 成绩在[60, 70)之间，输出可
+                console.log('可！');
+            } else if (score >= 70 && score < 80) {
+                // ■ 成绩在[70, 80)之间，输出中
+                console.log('中！');
+            } else if (score >= 80 && score < 90) {
+                // ■ 成绩在[80, 90)之间，输出良
+                console.log('良！');
+            } else if (score >= 90 && score <= 100) {
+                // ■ 成绩在[90, 100]之间，输出优
+                console.log('优！');
+            } else {
+                // ■ 其它值输出，成绩范围不正确
+                console.log('成绩范围不正确！');
+            }
+
+            // if (0 <= score < 60) {
+            //     // ■ 成绩在[0, 60)之间，输出差
+            //     console.log('差！');
+            // } else if (70 > score >= 60) {
+            //     // ■ 成绩在[60, 70)之间，输出可
+            //     console.log('可！');
+            // } else if (80 > score >= 70) {
+            //     // ■ 成绩在[70, 80)之间，输出中
+            //     console.log('中！');
+            // } else if (90 > score >= 80) {
+            //     // ■ 成绩在[80, 90)之间，输出良
+            //     console.log('良！');
+            // } else if (100 > score >= 90) {
+            //     // ■ 成绩在[90, 100]之间，输出优
+            //     console.log('优！');
+            // } else {
+            //     // ■ 其它值输出，成绩范围不正确
+            //     console.log('成绩范围不正确！');
+            // }
+        }
+
+
+    </script>
+</body>
+</html>

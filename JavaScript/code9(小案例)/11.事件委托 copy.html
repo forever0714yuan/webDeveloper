@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件委托</title>
+</head>
+<body>
+    <ul class="list">
+        <li>item1</li>
+        <li>item2</li>
+        <li class="item">item3</li>
+        <li class="item">item4</li>
+        <li>item5</li>
+        <li>item6</li>
+        <li>item7</li>
+        <li>item8</li>
+        <li>item9</li>
+        <li>item10</li>
+    </ul>
+    <script>
+        const list = document.querySelector('.list');
+
+        list.addEventListener('click', function (e) {
+
+            // e.target 就是当前点击的DOM元
+            console.log(e.target);
+            // if(e.target.className === ''){}
+            if (e.target.classList.contains('item')) {
+                console.log(e.target.textContent);
+            }
+
+        }, false)
+    </script>
+</body>
+</html>

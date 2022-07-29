@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>打字效果</title>
+</head>
+
+<body>
+    <div id="app">常要说的是乐生于苦,可乐极生悲道理又自古</div>
+    <script src="./jquery/jquery-3.6.0.js"></script>
+    <script>
+        // 获取字符串
+        const text = $('#app').text();
+
+        // 清空字符串
+        $('#app').text('');
+
+        let index = 0;
+
+        let timer = setInterval(function () {
+            index++;
+            // 长度
+            $('#app').text(text.substring(0, index) + '_')
+
+            if (index === text.length - 1) {
+                $('#app').text(text);
+                clearInterval(timer)
+            }
+        }, 200)
+
+
+    </script>
+</body>
+
+</html>

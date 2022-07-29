@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作业4</title>
+</head>
+<body>
+    <script>
+        // 老师问学生,这道题你会做了吗?如果学生答"会了(y)",则可以放学.如果学生不会做(n),则老师再讲一遍,再问学生是否会做了......直到学生会为止,才可以放学.
+        let count = 0;
+        do {
+            let score = prompt('这道题你会了嘛？\n 会（y） 不会（n）');
+
+            // 将输入的内容转为小写
+            score = score && score.toLowerCase();
+            console.log(score);
+
+            // 学生会了
+            if (score === 'y') {
+                alert('今天讲到这里，先放学，不会的童鞋回家再想想！')
+                break;
+            } else if (score === 'n') {
+                // 将的次数超过5次
+                count++;
+                alert('我再将一次，请大家认真听哦！')
+            } else if (score === null) {
+                // 取消，不讲了
+                break;
+            } else {
+                alert('请不要开小差！')
+            }
+
+            if (count >= 5) {
+                // 5次了  不讲了
+                alert('今天讲到这里，先放学，不会的童鞋回家再想想！')
+                break;
+            }
+        } while (true)
+    </script>
+</body>
+</html>

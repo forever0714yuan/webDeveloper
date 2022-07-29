@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<script src="jquery/jquery-3.6.0.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			console.log($('div'));
+			// jQuery对象
+			let $divs = $('div');
+			// 隐式迭代
+			// text 方法内部会迭代jQuery对象中匹配到的dom元素，依次设置每一个div的textContent属性
+			$divs.text('hello');
+			
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自己开发插件</title>
+</head>
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <script src="./jquery/jquery-3.6.0.js"></script>
+    <script>
+        // 给jQuery对象增加了color方法
+        $.fn.color = function (color) {
+            this.css('background-color', color)
+        }
+        // 当我们调用方法的时候，方法内部的this 就是当前调用该方法的对象
+        $('div').color('red');
+    </script>
+</body>
+</html>

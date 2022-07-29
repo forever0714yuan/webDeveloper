@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8" />
+    <title>表格案例</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .wrap {
+            width: 410px;
+            margin: 100px auto 0;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            border: 1px solid #c0c0c0;
+            width: 100%;
+        }
+
+        th,
+        td {
+            border: 1px solid #d0d0d0;
+            color: #404060;
+            padding: 10px;
+        }
+
+        th {
+            background-color: #09c;
+            font: bold 16px "微软雅黑";
+            color: #fff;
+        }
+
+        td {
+            font: 14px "微软雅黑";
+            text-align: center;
+        }
+
+        td a.get {
+            text-decoration: none;
+        }
+
+        a.del:hover {
+            text-decoration: underline;
+        }
+
+        tbody tr {
+            background-color: #f0f0f0;
+        }
+
+        tbody tr:hover {
+            cursor: pointer;
+            background-color: #fafafa;
+        }
+
+        .btnAdd {
+            width: 110px;
+            height: 30px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .form-item {
+            height: 100%;
+            position: relative;
+            padding-left: 100px;
+            padding-right: 20px;
+            margin-bottom: 34px;
+            line-height: 36px;
+        }
+
+        .form-item>.lb {
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: block;
+            width: 100px;
+            text-align: right;
+            font-size: 16px;
+        }
+
+        .form-item>.txt {
+            width: 300px;
+            height: 32px;
+            font-size: 16px;
+        }
+
+        .mask {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            opacity: 0.6;
+            display: none;
+        }
+
+        #j_hideFormAdd {
+            width: 22px;
+            height: 22px;
+            cursor: pointer;
+            text-align: center;
+            line-height: 22px;
+            font-size: 18px;
+        }
+
+        #j_hideFormAdd:hover {
+            background-color: skyblue;
+        }
+
+        .form-add {
+            position: fixed;
+            top: 30%;
+            left: 50%;
+            margin-left: -197px;
+            padding-bottom: 20px;
+            background: #fff;
+            display: none;
+        }
+
+        .form-add-title {
+            background-color: #f7f7f7;
+            border-width: 1px 1px 0 1px;
+            border-bottom: 0;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .form-add-title span {
+            width: auto;
+            height: 18px;
+            font-size: 16px;
+            font-family: 宋体;
+            font-weight: bold;
+            color: rgb(102, 102, 102);
+            text-indent: 12px;
+            padding: 8px 0px 10px;
+            margin-right: 10px;
+            display: block;
+            overflow: hidden;
+            text-align: left;
+        }
+
+        .form-add-title div {
+            width: 16px;
+            height: 20px;
+            position: absolute;
+            right: 10px;
+            top: 6px;
+            font-size: 30px;
+            line-height: 16px;
+            cursor: pointer;
+        }
+
+        .form-submit {
+            text-align: center;
+        }
+
+        .form-submit input {
+            width: 170px;
+            height: 32px;
+        }
+    </style>
+</head>
+
+<body>
+    <!--按钮和表单-->
+    <div class="wrap">
+        <div>
+            <input type="button" value="添加数据" id="j_btnAddData" class="btnAdd" />
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>姓名</th>
+                    <th>年龄</th>
+                    <th>性别</th>
+                    <th>电话</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody id="j_tb">
+
+            </tbody>
+        </table>
+    </div>
+    <!--遮罩层-->
+    <div id="j_mask" class="mask"></div>
+    <!--添加数据的表单-->
+    <div id="j_formAdd" class="form-add">
+        <div class="form-add-title">
+            <span>添加数据</span>
+            <div id="j_hideFormAdd">×</div>
+        </div>
+        <div class="form-item">
+            <label class="lb" for="j_name">姓名：</label>
+            <input class="txt" type="text" id="j_name" placeholder="请输入姓名" />
+        </div>
+        <div class="form-item">
+            <label class="lb" for="j_age">年龄：</label>
+            <input class="txt" type="text" id="j_age" placeholder="请输入年龄" />
+        </div>
+        <div class="form-item">
+            <label class="lb" for="j_sex">性别：</label>
+            <input class="txt" type="text" id="j_sex" placeholder="请输入性别" />
+        </div>
+        <div class="form-item">
+            <label class="lb" for="j_phone">电话：</label>
+            <input class="txt" type="text" id="j_phone" placeholder="请输入电话" />
+        </div>
+        <div class="form-submit">
+            <input type="button" value="添加" id="j_btnAdd" />
+        </div>
+    </div>
+
+    <script src="./jquery/jquery-3.6.0.js"></script>
+    <script>
+        let data = [
+            { name: "zs", age: "20", sex: "男", phone: "110" },
+            { name: "ls", age: "23", sex: "男", phone: "120" },
+            { name: "ww", age: "21", sex: "男", phone: "130" },
+            { name: "zl", age: "18", sex: "女", phone: "140" },
+            { name: "zb", age: "19", sex: "女", phone: "150" },
+            { name: "wj", age: "22", sex: "男", phone: "160" },
+        ]
+
+        // 清空tbody
+
+        $('#j_tb').empty();
+
+        // 渲染列表
+        data.forEach((item) => {
+            const $tr = $(`
+                <tr>
+                    <td>${item.name}</td>
+                    <td>${item.age}</td>
+                    <td>${item.sex}</td>
+                    <td>${item.phone}</td>
+                    <td>
+                        <a href="javascrip:void(0);" class="get">delete</a>
+                    </td>
+                </tr>
+            `)
+            $('#j_tb').append($tr);
+        })
+
+        // 删除  事件委托
+        $('#j_tb').on('click', '.get', function (e) {
+            // 阻止默认事件
+            e.preventDefault();
+
+            $(this)
+                .parent()
+                .parent()
+                .remove()
+        })
+
+        // 添加 
+        // 点击添加按钮，弹出层
+        $('#j_btnAddData').click(function () {
+            $('#j_mask').fadeIn(500);
+            $('#j_formAdd').fadeIn(500);
+        })
+
+        // 点击关闭按钮 ，关闭层
+        $('#j_hideFormAdd').click(function () {
+            $('#j_mask').fadeOut(500);
+            $('#j_formAdd').fadeOut(500);
+        })
+
+        // 点击添加按钮，新增一行
+
+        $('#j_btnAdd').click(function () {
+            // 获取数据栏中用户输入数据
+            const name = $('#j_name').val();
+            const age = $('#j_age').val();
+            const sex = $('#j_sex').val();
+            const phone = $('#j_phone').val();
+
+            const $tr = $(`
+                <tr>
+                    <td>${name}</td>
+                    <td>${age}</td>
+                    <td>${sex}</td>
+                    <td>${phone}</td>
+                    <td>
+                        <a href="javascrip:void(0);" class="get">delete</a>
+                    </td>
+                </tr>
+            `);
+            // 插入节点
+            $('#j_tb').prepend($tr);
+            // 关闭层
+            $('#j_hideFormAdd').click()
+
+            // 清空数据
+            $('#j_formAdd input[type=text]').val('');
+        });
+
+    </script>
+</body>
+
+</html>

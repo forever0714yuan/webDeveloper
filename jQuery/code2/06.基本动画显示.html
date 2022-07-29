@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基本动画显示</title>
+    <style>
+        #box {
+            width: 300px;
+            height: 300px;
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <button>hide</button>
+    <button>show</button>
+    <button>toggle</button> <br />
+    <button>slideDown</button>
+    <button>slideUp</button>
+    <button>slideToggle</button> <br />
+    <button>fadeIn</button>
+    <button>fadeOut</button>
+    <button>fadeToggle</button> <br />
+
+    <div id="box"></div>
+
+    <script src="./jquery/jquery-3.6.0.js"></script>
+    <script>
+        $('button').click(function () {
+            const text = $(this).text();
+            // sildeDown 和 sildeUp 默认就有200ms 的动画
+            $('#box')[text]()
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>固定定位</title>
+    <style>
+        * {
+            margin: 0;
+        }
+
+        .w {
+            width: 1200px;
+            height: 100%;
+            margin: 0 auto;
+            background-color: #fff;
+        }
+
+        body {
+            height: 2000px;
+            background-color: #666;
+        }
+
+        .totop {
+            width: 36px;
+            height: 36px;
+            border: 2px solid #666;
+            border-radius: 50%;
+            /* 让文字出去浏览器 */
+            text-indent: -99999px;
+            /* 背景图片 */
+            background: #fff url(./images/up.svg) no-repeat center center;
+            background-size: 20px 20px;
+            /* 固定定位  相对于可视区域定位
+                脱离标准流  不在占有位置
+                不会随滚动条滚动
+                行内大小可以更改大小
+            */
+            position: fixed;
+            bottom: 60px;
+            /* 可视区域的一半 */
+            right: 50%;
+            margin: 0 -746px 0 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="w"></div>
+    <div class="totop">回到顶部</div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动画</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .box {
+            position: absolute;
+            left: 50px;
+            top: 0;
+            width: 200px;
+            height: 200px;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">按钮</button>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <script>
+        'use strict';
+        const btn = document.querySelector('#btn');
+        const box = document.querySelector('.box');
+
+        btn.onclick = function () {
+            // 获取box的坐标 offsetLeft 是只读属性
+            let timerId = setInterval(function () {
+                box.style.left = box.offsetLeft + 5 + 'px'
+
+                if (box.offsetLeft >= 500) {
+                    box.style.left = '500px';
+                    clearInterval(timerId)
+                }
+            }, 16.7)
+        }
+    </script>
+</body>
+</html>

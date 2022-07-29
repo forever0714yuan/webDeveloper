@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // load 页面加载完毕后，并且DOM树 创建完毕，页面上所有的外部资源（图片，css,js等） 加载完毕执行
+        // DOmContentLoaded 页面加载完毕执行，DOM创建完毕就会执行
+        // unload 页面卸载的时候执行(关闭页面的时候)
+
+        // DOmContentLoaded 不能通过on的方式注册
+        // document.onDOmContentLoaded = function () {
+        //     console.log('111');
+        // }
+
+        // 页面加载完毕的时候，onload 只能给window注册
+        // DOMContentLoaded 先于 load执行
+        window.addEventListener('load', function () {
+            console.log('load');
+            const btn = document.querySelector('#btn');
+            console.log(btn);
+        })
+        //  DOmContentLoaded 区分大小写
+        document.addEventListener('DOMContentLoaded', function () {
+            console.log('DOMContentLoaded');
+            const btn = document.querySelector('#btn');
+            console.log(btn);
+        })
+
+        // 页面卸载
+        window.addEventListener('unload', function () {
+            alert('unload');
+            // 应用：可以用于清除定时器
+        })
+    </script>
+</head>
+<body>
+    <button id="btn">按钮</button>
+    <img src="./images/xn.png" alt="">
+    <script>
+        // 这个位置的代码执行的时机，比 DOMContentLoaded 的时机要早
+        // console.log('111');
+
+        // 此处获取img 标签的大小，0 因为此时的img标签中的图片还没有下载完毕
+        const img = document.querySelector('img');
+        // console.log(img.offsetHeight);
+        // console.log(img.offsetWidth);
+
+        // 元素的load 事件 元素创建完毕 外部资源下载完毕才执行
+        // img.addEventListener('load', function () {
+        //     console.log(img.offsetHeight);
+        //     console.log(img.offsetWidth);
+        // })
+
+        // 元素没有 DOMContentLoaded 这个事件
+        // img.addEventListener('DOMContentLoaded', function () {
+        //     console.log(img.offsetHeight);
+        //     console.log(img.offsetWidth);
+        // })
+    </script>
+</body>
+</html>

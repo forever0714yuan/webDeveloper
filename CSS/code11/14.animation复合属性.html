@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: aquamarine;
+
+            /* animation-name: run; */
+
+            /* animation-duration: 6s; */
+
+            /* 设置动画循环的次数 infinite 无数次 */
+            /* animation-iteration-count: infinite; */
+
+            /* 延迟多久后开始动画 */
+            /* animation-delay: 2s; */
+
+            /* 动画执行的方向 reverse 逆向*/
+            /* alternate 二选一  如果播放两次 如果播放两次 则正向一次 逆向一次 */
+            /* animation-direction: alternate; */
+
+            /* linear 匀速  ease 慢速开始  慢速结束*/
+            /* animation-timing-function: linear; */
+            animation: run 10s linear 2s infinite;
+        }
+
+        .box:hover {
+            /* 动画播放状态 running paused 动画暂停 */
+            animation-play-state: paused;
+        }
+
+        /* 动画序列 */
+        @keyframes run {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            /* 动画持续时间的25% 的位置 */
+            25% {
+                transform: translate(100px, 0);
+            }
+
+            50% {
+                transform: translate(100px, 100px);
+            }
+
+            75% {
+                transform: translate(0, 100px);
+            }
+
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

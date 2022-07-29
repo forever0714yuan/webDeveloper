@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定时器</title>
+</head>
+<body>
+    <button id="btn">支付</button>
+    <button id="btncanal">取消支付</button>
+    <script>
+        const btn = document.querySelector('#btn');
+        const btncanal = document.querySelector('#btncanal');
+
+
+        let timer = null;
+
+        btn.onclick = function () {
+            timer = setTimeout(() => {
+                console.log('print');
+                location.href = './10.访问摄像头.html'
+            }, 5000);
+        }
+
+
+        btncanal.onclick = function () {
+            // if (timer) {
+            //     console.log('clear');
+            //     // 取消定时器
+            //     clearTimeout(timer)
+
+
+            // }
+
+            // 1 && 2 会将2输出 
+            // （如果第一个转换为布尔值值是true 那么第二个数就会直接返回 （短路运算）
+            // 如果第一个数转换为布尔值是false 直接返回第一个数
+
+            // 1 || 2 
+            // 如果第一个数转换为布尔值值是true ，那么直接返回第一个数
+            // 如果第一个数转换为布尔值值是false ，那么需要看第二个数，此时就返回第二个数
+        }
+
+
+
+    </script>
+</body>
+</html>

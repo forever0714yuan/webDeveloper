@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+		div {
+			width: 200px;
+			height: 200px;
+			background-color: #FFA500;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<span>abc</span>
+		<p>pppp</p>
+	</div>
+
+	<script src="jquery/jquery-3.6.0.js" type="text/javascript" charset="utf-8"></script>
+
+	<script type="text/javascript">
+		// $('div').on('click',function(e) {
+		// 	console.log('click');
+		// 	console.log(e);
+		// })
+
+		// $('div').on('mouseover',function() {
+		// 	console.log('mouseover');
+		// })
+		// 第二个参数如果是对象，是给事件处理函数传递的参数，在事件处理函数中通过e.data获取
+		// $('div').on('click' ,{ name:'zs'} ,function(e) {
+		// 	console.log(e.data);
+		// })
+
+		// 事件委托
+		// $('#box').on('click','span',function() {
+		// 
+		// })
+		// 移除事件 直接调用off 可以把元素身上的所有事件全部移除
+		// $('#box').off()
+		// 如果想要移除单个事件
+		// $('#box').off('click')
+		// 只能点击一次
+		// $('#box').one('click',function() {
+		// 	console.log('支付');
+		// })
+
+		// 使用on 和off 实现one的效果
+
+		function my$(myName) {
+			$(myName).on('click', function () {
+				console.log('click');
+				$(myName).off()
+			});
+		};
+
+		my$('#box');
+
+	</script>
+</body>
+</html>

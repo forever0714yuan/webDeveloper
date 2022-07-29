@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #container {
+            width: 300px;
+            height: 300px;
+            background-color: chocolate;
+            padding: 10px;
+            margin: 10px;
+            /* 注意这里设置了绝对定位 */
+            /* position: absolute; */
+        }
+
+        #box {
+            width: 150px;
+            height: 150px;
+            background-color: darkcyan;
+            padding: 20px;
+            margin: 20px;
+            border: 5px solid darkslategray;
+        }
+    </style>
+
+
+</head>
+<body>
+    <div id="container">
+        <div id="box"></div>
+    </div>
+    <script>
+        const box = document.querySelector('#box');
+        // 元素的大小
+        console.log(box.offsetWidth);
+        console.log(box.offsetHeight);
+
+
+        // offsetParent 获取的是离当前box 最近的定位
+        // 如果没有定位父元素，那么 offsetParent 就是body
+        console.log(box.offsetParent);
+        // 元素距离最近定位父元素的左边的距离
+        console.log(box.offsetLeft);
+        // 元素距离最近定位父元素的顶部的距离
+        console.log(box.offsetTop);
+    </script>
+</body>
+</html>

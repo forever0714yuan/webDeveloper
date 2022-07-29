@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .toLeft {
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+<body>
+    <img src="./images/xn.png" alt="">
+    <script>
+
+        // onkeydown 按下按键，还没有弹起的时候
+        // onkeypress 和 onkeydown 很像，只是不能结合功能键使用
+        // onkeyup 按下键盘，并且按键已经弹起
+        const img = document.querySelector('img');
+        let x = 0;
+        let y = 0;
+
+        document.onkeydown = function (e) {
+            // e.keyCode 和 ASCII 不完全一致，小键盘的数字和大键盘的数字的keyCode不一致
+            // e.key 就是按下的键
+            console.log(e.key, e.keyCode);
+            switch (e.key) {
+                case 'ArrowRight':
+                    // 移除类样式toLeft
+                    img.className = '';
+                    x += 4;
+                    img.style.left = x + 'px';
+                    break;
+                case 'ArrowLeft':
+                    img.className = 'toLeft';
+                    x -= 4;
+                    img.style.left = x + 'px';
+                    break;
+                case 'ArrowUp':
+                    y -= 4;
+                    img.style.top = y + 'px';
+                    break;
+                case 'ArrowDown':
+                    y += 4;
+                    img.style.top = y + 'px';
+                    break;
+            }
+        }   
+    </script>
+</body>
+</html>

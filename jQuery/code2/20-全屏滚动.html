@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery 全屏滚动插件</title>
+    <link rel="stylesheet" href="fullpage/jquery.fullpage.min.css" />
+    <style>
+      .section {
+        font-size: 48px;
+        text-align: center;
+        color: #fff;
+      }
+
+      #fp-nav ul li a span {
+        background-color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="fullpage">
+      <div class="section">第一屏</div>
+      <div class="section">第二屏</div>
+      <div class="section">第三屏</div>
+      <div class="section">第四屏</div>
+    </div>
+
+    <script src="jquery/jquery-3.6.0.min.js"></script>
+    <!-- 在 jQuery 之后引入插件 -->
+    <script src="fullpage/jquery.fullpage.min.js"></script>
+    <script>
+      $("#fullpage").fullpage({
+        // 分别设定每屏的背景颜色
+        sectionsColor: ["#0da5d6", "#2AB561", "#DE8910", "#16BA9D"],
+        // 是否显示导航指示器
+        navigation: true,
+        // 导航指示器的位置
+        navigationPosition: "right",
+        // 切屏后执行该回调函数
+        afterLoad: function (anchorLink, index) {
+          console.log(index);
+        },
+      });
+    </script>
+  </body>
+</html>

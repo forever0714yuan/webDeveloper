@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>不会触发外边距塌陷</title>
+    <style>
+        .box {
+            width: 300px;
+            background-color: aqua;
+            /* 强制一个单词盛不下 换行 */
+            word-break: break-all;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        大大奥迪深度学习大萨达大大大大大叔大婶大大大大四大法法师
+        大大奥迪深度学习大萨达大大大大大叔大婶大大大大四大法法师
+    </div>
+</body>
+</html>

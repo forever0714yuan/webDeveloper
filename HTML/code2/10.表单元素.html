@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单元素</title>
+</head>
+<body>
+    <form>
+        <!-- type text 文本 password 密码  radio 单选 -->
+        <!--  checked 默认选中 -->
+        <!-- 具有name 的表单才会被提交 -->
+
+        用户名：<input type="text" value="admin">
+        密码：<input type="password"><br><br>
+        <!-- 单选框name 必须相同 -->
+        性别：<input type="radio" name="sex" checked value="man">男
+        <input type="radio" name="sex" value="felman">女
+        <input type="radio" name="sex" value="unknow">未知<br><br>
+
+        爱好：
+        串串 <input type="checkbox" name="cc" value="cc">
+        火锅 <input type="checkbox" name="hg" value="hg">
+        烤肉 <input type="checkbox" name="kr" value="kr" checked="checked"><br>
+
+        学历：
+        <!-- 下拉框 -->
+        <select>
+            <option value="yey">幼儿园</option>
+            <option value="xx">小学</option>
+            <option value="zx" selected>中学</option>
+            <option value="dx">大学</option>
+        </select>
+
+        备注：
+        <textarea cols="30" rows="3"></textarea><br><br>
+
+        <!-- multiple 设置可以上传多个文件 -->
+        上传头像：<input type="file" multiple><br><br>
+        <!-- button 普通按钮 -->
+        <input type="button" value="登录">
+        <!-- submit 提交 默认值的文字是 提交 -->
+        <input type="submit" value="注册">
+        <!-- reset 重置  默认的文字是 重置  将表单元素中，用户输入的内容重置为默认值-->
+        <input type="reset" value="重新填写">&nbsp;
+        <!-- 本质是提交按钮 -->
+        <input type="image" src="image/1.jpg"><br><br>
+
+        <label for="username">
+            用户名：<input type="text"  id="username">
+        </label>
+    </form>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>嵌套块级元素垂直方向外边距塌陷问题</title>
+    <style>
+        /* 
+            父元素和子元素在垂直方向都设置margin  此时会出现外边距塌陷
+            显示的是较大的值
+        */
+        .father {
+            width: 500px;
+            height: 500px;
+            background-color: aqua;
+            margin-top: 50px;
+
+            /* 解决的办法 */
+
+            /* 1.为父元素定义边框 */
+            /* 但是boder会出现2px的值 需要自己计算宽高  */
+            /* border: 1px solid transparent; */
+            /* 2.为父元素定义内边距 */
+            /* 与1.的问题一样 */
+            /* padding: 1px; */
+            /* 可以为父元素添加 overflow: hidden(BFC) */
+            overflow: hidden;
+        }
+
+        .bother {
+            width: 300px;
+            height: 300px;
+            background-color: tomato;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="bother"></div>
+    </div>
+</body>
+</html>

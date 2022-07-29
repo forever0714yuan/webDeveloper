@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery 图片裁切插件</title>
+    <link rel="stylesheet" href="./jcrop/css/jquery.Jcrop.min.css" />
+    <style>
+        body,
+        h4 {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background-color: #f6f6f6;
+        }
+
+        img {
+            /*max-width: 100%;*/
+            vertical-align: middle;
+        }
+
+        h4 {
+            margin: 20px 0;
+        }
+
+        .jcrop-demo {
+            padding: 20px;
+        }
+
+        .original {
+            width: 600px;
+        }
+
+        .preview {
+            width: 400px;
+            height: 200px;
+            border: 1px solid #cccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="jcrop-demo">
+        <h4>原始图片</h4>
+        <div class="original">
+            <img src="./img/xiaohei.jpg" alt="" />
+        </div>
+        <p class="coords"></p>
+    </div>
+
+    <script src="./jquery/jquery-3.6.0.js"></script>
+    <!-- 在 jQuery 之后引入 -->
+    <script src="./jcrop/js/jquery.Jcrop.min.js"></script>
+    <script>
+        $("img").Jcrop({
+            setSelect: [390, 143, 890, 393],
+            aspectRatio: 2 / 1,
+            boxWidth: 600,
+            onSelect: function (coords) {
+                console.log(coords);
+
+                $(".coords").html(`
+                    选区的宽度为: ${Math.ceil(coords.w)}px
+                    <br>
+                    选区的高度为: ${Math.ceil(coords.h)}px
+                    <br>
+                    左上角坐标为: [${Math.ceil(coords.x)}px, ${Math.ceil(coords.y)}px]
+                    <br>
+                    右下角坐标为: [${Math.ceil(coords.x2)}px, ${Math.ceil(coords.y2)}px]
+                `);
+            },
+        });
+    </script>
+</body>
+</html>

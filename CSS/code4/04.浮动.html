@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浮动</title>
+    <style>
+        /* 浮动特定
+            1、浮动元素脱离标准文档流
+            2、两个浮动元素，会对齐显示，没有间隙
+            3、超出父元素宽度会自动换行
+            4、当行内元素浮动，浮动的元素具有行内块的特点
+        */
+        .box1 {
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+        }
+
+        .box2 {
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+            /* float: left; */
+            float: right;
+        }
+
+        .box3 {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+</body>
+</html>

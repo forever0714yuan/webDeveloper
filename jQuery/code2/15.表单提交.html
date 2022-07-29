@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单提交</title>
+</head>
+<body>
+    <form>
+        昵称: <input type="text" name="nickname">
+        <br>
+        密码: <input type="password" name="password">
+        <br>
+        <button>提交</button>
+    </form>
+    <script src="jquery/jquery-3.6.0.js"></script>
+    <script>
+        // 监听表单的 submit 事件
+        $('form').submit(function (ev) {
+            // 表单提交的相关逻辑...
+
+            // 阻止 HTML 表单的默认提交
+            // ev.preventDefault();
+
+            // ev.preventDefault() 在 jQuery 中可以
+            // 被简写成 return false
+
+            // serialize 序列化表单 可以自动的把表单中的具有name属性的表单
+            // 元素的值全部收集起来
+            $(this).serialize()
+            console.log($(this).serialize());
+            return false;
+        })
+    </script>
+</body>
+</html>

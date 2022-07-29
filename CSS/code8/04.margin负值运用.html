@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        .box {
+            width: 1200px;
+            margin: 100 auto;
+        }
+
+        .box .itemm {
+            float: left;
+            width: 200px;
+            border: 2px solid gray;
+            height: 300px;
+            margin-left: -2px;
+        }
+
+        .box .itemm:nth-child(1) {
+            margin-left: 0;
+        }
+
+        .box .itemm:hover {
+            border-color: orange;
+
+            position: relative;
+            /* 只有定位才设置z-index  浮动元素设置z-index元素*/
+            z-index: 100;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="itemm"></div>
+        <div class="itemm"></div>
+        <div class="itemm"></div>
+        <div class="itemm"></div>
+        <div class="itemm"></div>
+    </div>
+</body>
+</html>

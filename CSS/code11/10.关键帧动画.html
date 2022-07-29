@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关键帧动画</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            /* 设置动画 */
+            animation-name: move;
+
+            /* 设置动画持续时间 */
+            animation-duration: 6s;
+
+            /* 想让动画执行结束之后保留最后的位置 */
+            animation-fill-mode: forwards;
+
+        }
+
+        @keyframes move {
+            from {
+                /* width: 100px; */
+                transform: translateX(0);
+            }
+
+            to {
+                /* width: 600px; */
+                transform: translateX(500px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

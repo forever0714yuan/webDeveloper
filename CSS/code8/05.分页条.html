@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>分页条</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        body {
+            font-size: 14px;
+        }
+
+        .page {
+            margin-top: 60px;
+            height: 38px;
+            line-height: 38px;
+            /* text-align: center; */
+        }
+
+        .page>a {
+            /* display: inline-block; */
+            float: left;
+            line-height: 36px;
+            padding: 0 14px;
+            height: 36px;
+            background-color: #f7f7f7;
+            border: 1px solid #ddd;
+            margin-right: 10px;
+        }
+
+        .page>a:hover {
+            box-shadow: 0 1px 1px rgba(0, 1, 1, .08);
+        }
+
+        .page>.current {
+            background-color: transparent;
+            border: none;
+            color: #e4393c;
+        }
+
+        .page>.current:hover {
+            box-shadow: none;
+        }
+
+        .page>.break {
+            float: left;
+            margin-right: 10px;
+        }
+
+        .skip input {
+            line-height: 30px;
+            text-align: center;
+            width: 30px;
+            height: 30px;
+            padding: 3px;
+            border: 1px solid #ddd;
+            outline: none;
+        }
+
+        .skip .btn {
+            display: inline-block;
+            line-height: 36px;
+            padding: 0 14px;
+            height: 36px;
+            background-color: #f7f7f7;
+            border: 1px solid #ddd;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <a href="#">&lt;&lt;上一页</a>
+        <a href="#">1</a>
+        <a href="#" class="current">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <a href="#">5</a>
+        <span class="break">...</span>
+        <a href="#">100</a>
+        <a href="#">下一页&gt;&gt;</a>
+        <span class="skip">
+            共10页
+            &nbsp;
+            到第
+            <input type="text" value="2">
+            页
+            <a class="btn" href="#">确定</a>
+        </span>
+    </div>
+</body>
+</html>

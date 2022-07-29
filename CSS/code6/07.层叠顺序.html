@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>层叠顺序</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+        }
+
+        .box1 {
+            background-color: aqua;
+            /* 默认为0 值越大 越显示在上面 没有单位  只能用于绝对/固定定位的元素
+                标准流和浮动都无法使用
+            */
+            z-index: 10;
+        }
+
+        .box2 {
+            background-color: royalblue;
+            z-index: 5;
+        }
+
+        .box3 {
+            background-color: greenyellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">1</div>
+    <div class="box2">2</div>
+    <div class="box3">3</div>
+</body>
+</html>

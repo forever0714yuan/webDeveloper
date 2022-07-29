@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动态生成成绩表</title>
+</head>
+<body>
+
+    <div class="box"></div>
+    <script>
+
+        const box = document.querySelector('.box');
+        const scores = [
+            { "name": "马闯", "subject": "语文", "score": 90 },
+            { "name": "马户", "subject": "数学", "score": 100 },
+            { "name": "马尧", "subject": "音乐", "score": 100 },
+            { "name": "马震", "subject": "语文", "score": 90 },
+            { "name": "马云", "subject": "语文", "score": 90 }
+        ];
+
+        // 动态生成表格
+        // 动态创建 table标签
+        const mytable = document.createElement('table');
+        mytable.border = '1';
+        mytable.cellspacing = '0';
+
+        // 动态创建 tr 标签
+        const mytr = document.createElement('tr');
+        mytable.appendChild(mytr);
+
+        // 动态创建 th
+        const myth1 = document.createElement('th');
+        const myth2 = document.createElement('th');
+        const myth3 = document.createElement('th');
+        const myth4 = document.createElement('th');
+
+        myth1.innerText = '姓名';
+        myth2.innerText = '学科';
+        myth3.innerText = '成绩';
+        myth4.innerText = '操作';
+
+        mytr.append(myth1, myth2, myth3, myth4);
+
+        // 动态创建tr成绩
+        function animaProduct(name, subject, score) {
+            const mytr = document.createElement('tr');
+            const myth1 = document.createElement('th');
+            const myth2 = document.createElement('th');
+            const myth3 = document.createElement('th');
+            const myth4 = document.createElement('th');
+
+            myth1.innerText = name;
+            myth2.innerText = subject;
+            myth3.innerText = score;
+
+            const a1 = document.createElement('a');
+            a1.href = "#"
+            a1.innerText = '操作'
+            myth4.appendChild(a1);
+            mytr.append(myth1, myth2, myth3, myth4);
+            mytable.appendChild(mytr);
+        }
+
+        scores.forEach((item) => {
+            animaProduct(item.name, item.subject, item.score)
+        })
+
+        box.appendChild(mytable);
+
+    </script>
+</body>
+</html>

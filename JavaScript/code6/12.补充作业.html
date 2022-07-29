@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>补充作业</title>
+</head>
+<body>
+    <script>
+        // 统计一个字符串中每个字符出现的次数，并求出现次数最多的字符串，
+        let str = 'abcoefoxyozzopp';
+        let strObject = {};
+        for (let i = 0; i < str.length; i++) {
+            if (strObject[str[i]]) {
+                strObject[str[i]] += 1;
+            } else {
+                strObject[str[i]] = 1;
+            }
+        }
+        console.log(strObject);
+
+        let max = strObject['a'];
+        let maxstr = ''
+        for (const key in strObject) {
+            if (max < strObject[key]) {
+                max = strObject[key];
+                maxstr = key;
+            }
+        }
+        console.log(max, maxstr);
+
+        // ● 获取url中?后面的内容，并转化成对象的形式。例如：
+        //   ○ http://www.nllcoder.com/login?name=zs&age=18&a=1&b=2
+        //   ○ 期望得到的结果：{ name: 'zs', age: '18', a: '1', b: '2' }
+        let str1 = 'http://www.nllcoder.com/login?name=zs&age=18&a=1&b=2';
+
+        let newstr1 = str1.slice(str1.indexOf('?') + 1);
+
+        console.log(newstr1);
+
+        let newArray1 = newstr1.split('&')
+        console.log(newArray1);
+        let object = {}
+
+        newArray1.forEach((item, index, arr) => {
+            console.log();
+            object[item.slice(0, item.indexOf('='))] = item.slice(item.indexOf('=') + 1)
+        })
+        console.log(object);
+
+        // 自己实现一个函数：对数组元素进行排序
+        function getSort(array) {
+
+        }
+    </script>
+</body>
+</html>

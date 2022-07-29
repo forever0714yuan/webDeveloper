@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>随机数</title>
+</head>
+<body>
+    <script>
+        // 实现一个函数返回 10~30 (30可以取到)之间的随机数
+        function getNum() {
+            return Math.floor(Math.random() * (30 - 10 + 1) + 10);
+        }
+        console.log(getNum());
+
+        // 实现一个函数返回 n~m (m可以取到)之间的随机数
+
+        function getRandom(n, m) {
+            return Math.floor(Math.random() * (m - n + 1) + n);
+        }
+        // 1-10
+        console.log(getRandom(1, 10));
+
+
+        // ● 随机生成颜色的 RGB 值
+        // ○ RGB值：0~255 之间的数字
+        // ○ 要求函数返回 rgb(随机 r 的值, 随机 g 的值, 随机 b 的值)
+
+        function getColor() {
+            let r = getRandom(0, 255);
+            let g = getRandom(0, 255);
+            let b = getRandom(0, 255);
+            return 'rgb(' + r + ', ' + g + ', ' + b + ')'
+        }
+        console.log(getColor());
+
+        // 自己实现一个方法，模拟实现 Math.max()  的效果
+
+        let MyMath = {
+            max: function () {
+                let max = arguments[0];
+                for (let i = 0; i < arguments.length; i++) {
+                    if (arguments[i] > max) {
+                        max = arguments[i];
+                    }
+                }
+                return max;
+            }
+        }
+        console.log(MyMath.max(11, 23, 1, 45, 2, 32));
+    </script>
+</body>
+</html>

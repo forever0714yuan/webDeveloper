@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>观察z轴</title>
+    <style>
+        .par {
+            width: 400px;
+            height: 400px;
+            border: 1px solid #000;
+            margin: 100px;
+            /* 开启透视 */
+            perspective: 500px;
+        }
+
+        .child {
+            width: 200px;
+            height: 200px;
+            background-color: antiquewhite;
+            transition: transform 2s;
+            margin: 100px;
+        }
+
+        .par:hover .child {
+            /* transform: rotateX(90deg); */
+            /* transform: rotateY(90deg); */
+            /* transform: rotateZ(90deg); */
+            /* x,y,z,度数 */
+            transform: rotate3d(1, 0, 0, 80deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="par">
+        <div class="child"></div>
+    </div>
+</body>
+</html>

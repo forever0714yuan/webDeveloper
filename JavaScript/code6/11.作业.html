@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作业</title>
+</head>
+<body>
+    <script>
+        // ● 实现一个函数返回 n~m(m取不到)之间的随机数
+        function getNum(n, m) {
+            return Math.floor(Math.random() * (m - n)) + n;
+        }
+        console.log(getNum(1, 10));
+        // ● 自己实现一个方法，模拟实现 Math.min()  的效果
+        function getMin() {
+            let min = arguments[0];
+            for (let i = 0; i < arguments.length; i++) {
+                if (arguments[i] < min) {
+                    min = arguments[i];
+                }
+            }
+            return min;
+        }
+        console.log(getMin(99, 3, 5, 2, 44, 12, 12));
+        // ● 将一个字符串数组输出为 | 分割的形式，比如：'刘备|张飞|关羽'
+        let array = ['刘备', '张飞', '关羽'];
+        let newArray = array.join('|');
+        console.log(newArray);
+        // ● 将一个字符串数组的元素的顺序进行反转。['a', 'b', 'c', 'd'] -> ['d', 'c', 'b', 'a']
+        let array1 = ['a', 'b', 'c', 'd'];
+        let newArray1 = array1.reverse();
+        console.log(newArray1);
+
+
+    </script>
+</body>
+</html>

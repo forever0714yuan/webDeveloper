@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>resize 事件</title>
+</head>
+<body>
+    <script>
+        // 当浏览器的窗口大小发生改变执行
+        window.onresize = handleResize;
+
+        handleResize();
+
+        function handleResize() {
+            // 判断当浏览器的可视区域宽度  < 800 设置一种颜色
+            // >= 800 的时候设置另一个颜色
+            // 获取浏览器可视区域的大小
+            const width = document.documentElement.clientWidth;
+            if (width < 800) {
+                document.body.style.backgroundColor = 'red'
+            } else {
+                document.body.style.backgroundColor = 'green'
+            }
+        }
+    </script>
+</body>
+</html>

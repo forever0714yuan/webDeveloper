@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>scroll系列</title>
+</head>
+<style>
+    .box {
+        width: 200px;
+        height: 200px;
+        border: 1px solid red;
+        overflow: auto;
+    }
+</style>
+<body>
+    <div class="box">
+        <!-- <img src="./images/bg.gif" alt=""> -->
+        aaaaaaaaaaaaaaaaaaaaaa
+        aaaaaaaaaaaaaaaaaaaaaa
+        aaaaaaaaaaaaaaaaaaaaaa
+        aaaaaaaaaaaaaaaaaaaaaa
+        aaaaaaaaaaaaaaaaaaaaaa
+        aaaaaaaaaaaaaaaaaaaaaa
+        aaaaaaaaaaaaaaaaaaaaaa
+        aaaaaaaaaaaaaaaaaaaaaa
+        aaaaaaaaaaaaaaaaaaaaaa
+        aaaaaaaaaaaaaaaaaaaaaa
+        aaaaaaaaaaaaaaaaaaaaaa
+        aaaaaaaaaaaaaaaaaaaaaa
+        aaaaaaaaaaaaaaaaaaaaaa
+        aaaaaaaaaaaaaaaaaaaaaa
+        aaaaaaaaaaaaaaaaaaaaaa
+        aaaaaaaaaaaaaaaaaaaaaa
+    </div>
+    <script>
+        const box = document.querySelector('.box');
+        // 获取盒子大小
+        console.log('box.offsetWidth', box.offsetWidth);
+        console.log('box.offsetHeight', box.offsetHeight);
+        // 获取滚动内容大小
+        console.log('box.scrollWidth', box.scrollWidth);
+        console.log('box.scrollHeight', box.scrollHeight);
+
+        // 获取box中内容滚动出去的距离
+        box.onscroll = function () {
+            console.log(box.scrollTop);
+            console.log(box.scrollLeft);
+        }
+
+        // 当网页滚动的时候，获取页面滚动出去的距离
+        window.onscroll = function () {
+            console.log(document.documentElement.scrollTop);
+        }
+    </script>
+</body>
+</html>

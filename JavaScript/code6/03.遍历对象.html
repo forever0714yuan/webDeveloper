@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>遍历对象</title>
+</head>
+<body>
+    <script>
+        let stu = {
+            name: 'zs',
+            age: 18,
+            sex: '男',
+            doHomework: function () {
+                console.log('做作业');
+            }
+        }
+        // 对象是一个无序属性的集合
+        // for (const key in stu) {
+        //     console.log(key);
+        //     console.log(stu[key]);
+        // }
+
+        delete stu.name;
+
+        console.log(stu);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <p>相册</p>
+    <div id="imagehallery"></div>
+    <p>美女</p>
+
+    <img src="" alt="img" title="img">
+    <script>
+        // 模拟从服务器获取到的数据
+        const array = [
+            { small: 'image/mv2.jpg', big: 'image/mv2.jpg', des: '美女1' },
+            { small: 'image/mv2.jpg', big: 'image/mv2.jpg', des: '美女2' },
+            { small: 'image/mv2.jpg', big: 'image/mv2.jpg', des: '美女3' },
+            { small: 'image/mv2.jpg', big: 'image/mv2.jpg', des: '美女4' }
+        ];
+
+        const imagegallery = document.querySelector('#imagehallery');
+        // 遍历美女数据
+
+        array.forEach((item) => {
+            // 动态生成a标签和img标签
+
+            // 生成a标签
+            const link = document.createElement('a');
+            imagegallery.appendChild(link);
+
+            // 设置a的属性
+            link.href = item.big;
+            link.title = item.des;
+
+            // 生成img 
+            const image = document.createElement('img');
+            link.appendChild(image);
+
+            // 设置属性
+            image.src = item.small;
+            image.title = item.des;
+
+            // 点击事件
+            link.onclick = handleClick;
+        })
+
+        function handleClick() {
+            const photo = document.querySelector('#photo');
+            const des = document.querySelector('#des');
+
+            // 获取当前点击的a元素的对应属性
+            let big = this.href;
+            let str = this.title;
+
+            photo.src = big;
+            des.textContent = str;
+
+            // 取消a的默认行为
+            return false;
+        }
+
+    </script>
+</body>
+</html>

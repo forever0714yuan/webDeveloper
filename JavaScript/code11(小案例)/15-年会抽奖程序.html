@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>抽奖程序</title>
+  <style>
+    input {
+      background-color: greenyellow;
+      border: 1px solid green;
+      width: 100px;
+      height: 50px;
+      font-size: 20px;
+      font-family: "微软雅黑";
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h3 color="red">恭喜您：</h3>
+  <div style="font-size: 20px;text-align: center;border: 2px solid green;width:200px;height: 50px;line-height: 50px;">
+    <span id="sp"></span>
+  </div>
+  <hr />
+  <input type="button" value="开始抽奖" id="start" />
+  <script>
+    // 抽奖人员名单
+    const arr = ['小花', '小明', '小红', '小丽', '小强', '小白', '小黑', '小刚'];
+    let currentIndex = 0;
+    function fun() {
+      // 随机获取数组人名
+      currentIndex = Math.floor(Math.random() * arr.length);
+      const name = document.querySelector('#sp');
+      name.innerHTML = arr[currentIndex] + '&nbsp;&nbsp;&nbsp;中奖了';
+    }
+
+    //点击开始按钮，定时器循环执行
+    const start = document.querySelector('#start');
+
+    let timerId = null;
+
+    start.onclick = function () {
+
+      if (!timerId) {
+        timerId = setInterval(fun, 50);
+        start.value = '结束抽奖';
+
+      } else {
+        clearInterval(timerId);
+
+        timerId = null;
+        start.value = '开始抽奖';
+      }
+      // new SpeechSynthesisUtterance
+    };
+  </script>
+</body>
+</html>

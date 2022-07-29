@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>位移</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: antiquewhite;
+
+            /* 位移 */
+            /* 横向纵向 */
+            /* transform: translate(100px, 100px); */
+            /* 只是横向移动  纵向移动一样 */
+            /* transform: translate(100px, 0); */
+
+            /* 平移，百分比，是相对于自己的大小 */
+            /* transform: translateX(100%); */
+
+            /* 位移对行内元素无效 */
+            /* 位移不会影响后续的内容 */
+            transition: transform 2s;
+            /* 位移之后原来的位置  还占着 */
+            transform: translate(100px, 100px);
+        }
+
+        .box:hover {
+            transform: translateX(100px);
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <!-- <div>123</div> -->
+</body>
+</html>

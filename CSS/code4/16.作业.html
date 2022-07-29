@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作业</title>
+    <style>
+        .content {
+            width: 940px;
+            background-color: aqua;
+        }
+
+        .content::after {
+            display: block;
+            content: '';
+            clear: both;
+        }
+
+        .content .cfloat {
+            float: left;
+            margin: 10px 0 10px 10px;
+        }
+
+        .content .cleft {
+            width: 300px;
+            height: 300px;
+            background-color: blue;
+        }
+
+        .content .ccenter {
+            width: 300px;
+            height: 300px;
+            background-color: blueviolet;
+        }
+
+        .content .cright {
+            width: 300px;
+            height: 300px;
+            background-color: yellow;
+        }
+
+        .content .cright .rbox {
+            width: 145px;
+            height: 145px;
+            background-color: red;
+            float: left;
+        }
+
+        .content .cright .rmargin-left {
+            margin-left: 10px;
+        }
+
+        .content .cright .rmargin-top {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="cleft cfloat"></div>
+        <div class="ccenter cfloat"></div>
+        <div class="cright cfloat">
+            <div class="rbox"></div>
+            <div class="rbox rmargin-left"></div>
+            <div class="rbox rmargin-top"></div>
+            <div class="rbox rmargin-top rmargin-left"></div>
+        </div>
+    </div>
+</body>
+</html>

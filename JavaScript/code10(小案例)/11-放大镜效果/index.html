@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/base.css" />
+</head>
+<body>
+    <div class="w">
+        <div class="fdj">
+            <div class="leftBox" id="_leftBox">
+                <!-- 小图 -->
+                <img src="img/m.jpg" alt="" />
+                <!-- 小黄盒子 -->
+                <div class="tool" id="_tool"></div>
+            </div>
+            <div class="rightBox" id="_rightBox">
+                <img id="_bImg" src="img/b.jpg" alt="" />
+            </div>
+        </div>
+    </div>
+    <!-- 引入的外部js程序文件 -->
+    <!-- <script src="js/index.js"></script> -->
+    <script>
+        //   ○ 鼠标进入左侧显示小黄盒子 和 右侧盒子
+        //   ○ 鼠标离开左侧隐藏小黄盒子 和 右侧盒子
+
+        const leftBox = document.querySelector('.leftBox');
+
+        const tool = document.querySelector('.tool');
+
+        const rightBox = document.querySelector('.rightBox');
+
+        const bImg = document.querySelector('#_bImg')
+
+        leftBox.onmouseover = function () {
+            tool.style.display = 'block';
+            rightBox.style.display = 'block';
+        }
+
+        leftBox.onmouseout = function () {
+            tool.style.display = 'none';
+            rightBox.style.display = 'none';
+        }
+        //   给左侧盒子注册mousemove的事件
+
+        leftBox.onmousemove = function (e) {
+
+            // 获取这个在左侧盒子中的坐标
+            let x = e.pageX - leftBox.offsetLeft;
+            let y = e.pageY - leftBox.offsetTop;
+
+            // 将鼠标放到黄色盒子中间
+            x -= tool.offsetWidth / 2;
+            y -= tool.offsetHeight / 2;
+
+            // 控制黄色小盒子  不出去左侧盒子
+            // 左右
+            if (x < 0) {
+                x = 0;
+            } else if (x > leftBox.offsetWidth - tool.offsetWidth) {
+                x = leftBox.offsetWidth - tool.offsetWidth;
+            }
+            // 上下
+            if (y < 0) {
+                y = 0;
+            } else if (y > leftBox.offsetHeight - tool.offsetHeight) {
+                y = leftBox.offsetHeight - tool.offsetHeight;
+            }
+
+            // 将获得坐标设置给黄色盒子
+            tool.style.left = x + 'px';
+            tool.style.top = y + 'px';
+
+            //   ○ 鼠标在左侧盒子中移动小黄盒子 和 右侧盒子的图片按照比例移动
+            bImg.style.left = -x * 2 + 'px';
+            bImg.style.top = -y * 2 + 'px';
+
+            // 小黄盒子移动的距离 x,y / 小黄盒子最大能够移动的距离（leftBox.offsetWidth - tool.offsetWidth;）= 
+
+            // 大盒子移动的距离（要求的值） / bImg.offsetWidth - rightBox.offsetWidth;）
+
+            // bImg.style.left = -x * 2 + 'px';
+            // bImg.style.top = -y * 2 + 'px';
+
+            bImg.style.left = -x * (bImg.offsetWidth - rightBox.offsetWidth) / (leftBox.offsetWidth - tool.offsetWidth) + 'px';
+            bImg.style.top = -y * (bImg.offsetHeight - rightBox.offsetHeight) / (leftBox.offsetHeight - tool.offsetHeight) + 'px';
+
+
+
+        }
+
+
+
+    </script>
+</body>
+</html>

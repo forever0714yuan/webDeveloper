@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作业5</title>
+</head>
+<body>
+    <script>
+        // ● 5 仿 siri 项目中实现求和的功能
+
+        //   ○ 当输入1进行求和的时候，首先让用户输入，他要计算多少个数字的和
+        //   ○ 再依次输入每个数字
+        //   ○ 最后打印求和的结果
+        let arr = [];
+        let fig = true, iFig = true;
+
+
+        while (fig) {
+            let userIn = prompt('您好，我是您的私人助力 siri\n 请输入编号或者《关键词》选择功能，按q退出\n 1.计算《总和》\n 2.获取《时间》\n 3.讲个《笑话》\n 4.来个《抽奖》');
+
+            if (userIn === '1') {
+                while (iFig) {
+                    let count = parseInt(prompt('请您输入需要计算多少个数字的和！'));
+
+                    if (isNaN(count)) {
+                        alert('非法输入，请输入正确的个数！')
+                    } else {
+                        let sum = 0;
+
+                        for (let i = 0; i < count; i++) {
+                            let insertNum = parseFloat(prompt('请输入' + (i + 1) + '个数！'));
+
+                            if (isNaN(insertNum)) {
+                                alert('输入数字啊！！！！');
+                            }
+                            arr[i] = insertNum;
+
+                            sum += insertNum;
+                        }
+                        alert('总和:' + sum);
+                        iFig = false;
+                    }
+                    fig = false;
+                }
+            } else if (userIn === null || userIn === 'q') {
+                fig = false;
+            }
+        }
+
+    </script>
+</body>
+</html>

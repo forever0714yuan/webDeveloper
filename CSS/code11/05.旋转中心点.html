@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>案例2</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+            margin: 100px;
+            transition: transform 2s;
+            /* 改变旋转中心点 */
+            /* transform-origin: left left; */
+
+            /* 百分数相当于当前旋转元素的大小 */
+            transform-origin: 50% 0;
+
+
+        }
+
+        .box:hover {
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

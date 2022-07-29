@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象属性</title>
+</head>
+<body>
+    <script>
+        let student = {
+            name: 'zs',
+            age: 18
+        };
+
+        // 属性除了可以使用，语法外，还可以使用[],[] 里面是属性的名字，是字符串类型
+
+        // [] 和 .  . 不一样的地方，使用.语法的时候属性名称必须是合法的标识符
+        // [] 中的字符串可以不是合法的标识符
+
+
+        let obj = {};
+        // 合法的
+        obj['123'] = 10000;
+
+        // 错误演示
+        // obj.4 = 4;
+
+        // console.log(obj['123']);
+
+        // [] 中必须是字符串，属性名称必须是字符串
+
+        // [] 中如果写数字，会自动转换成字符串
+
+
+
+        // 什么时候使用[]
+        // 1.遍历对象中的所有成员，这个时候使用[]
+        // 2.如果属性不是合法的标识符，这个时候使用[]
+
+
+
+
+
+
+    </script>
+</body>
+</html>

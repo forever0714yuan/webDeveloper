@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 让用户输入成绩 
+        // 判断成绩是否超过60分，如果超过60分打印及格
+        // 少于60分，打印不及格
+
+        let score = prompt('请输入您的成绩')
+
+        // 类型转换，把字符串转换为数值类型
+        score = parseFloat(score);
+
+        if (score > 60) {
+            console.log('及格');
+        } else {
+            console.log('不及格');
+        }
+
+    </script>
+</body>
+</html>

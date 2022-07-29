@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浮动案例3</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 1200px;
+            height: 650px;
+            background-color: #ccc;
+            margin: 50px auto;
+        }
+
+        .box .left,
+        .box .right .rbox {
+            background-color: aqua;
+        }
+
+        .box .left {
+            width: 200px;
+            height: 100%;
+            float: left;
+        }
+
+        .box .right {
+            width: 1000px;
+            height: 100%;
+            float: left;
+            /* font-size: 0; */
+        }
+
+        .box .right .rbox {
+            width: 200px;
+            height: 300px;
+            float: left;
+            margin-left: 50px;
+        }
+
+        .box .right .top {
+            margin-top: 50px;
+        }
+
+        .box .right .claermargin {
+            margin-left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="left"></div>
+        <div class="right">
+            <div class="rbox"></div>
+            <div class="rbox"></div>
+            <div class="rbox"></div>
+            <div class="rbox"></div>
+            <div class="rbox top"></div>
+            <div class="rbox top"></div>
+            <div class="rbox top"></div>
+            <div class="rbox top"></div>
+        </div>
+    </div>
+</body>
+</html>

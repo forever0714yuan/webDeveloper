@@ -1,0 +1,334 @@
+/*************** 4.主导航*******************/
+.nav {
+    height: 47px;
+    box-sizing: border-box;
+    border-bottom: 2px solid #b1191a;
+}
+
+/* 全部商品分类 */
+.nav .w .dropdown {
+    background-color: #c81623;
+}
+
+.nav .w .dropdown dt {
+    width: 210px;
+    height: 45px;
+    line-height: 45px;
+    font-size: 16px;
+    text-align: center;
+    color: #fff;
+    background-color: #b1191a;
+}
+
+/* 商品分类导航 */
+.nav .w .dropdown dd {
+    width: 210px;
+    height: 31px;
+    line-height: 31px;
+    padding: 0 12px;
+    background-color: #c81623;
+    color: #fff;
+}
+
+.nav .w .dropdown dd:nth-of-type(1) {
+    margin-top: 2px;
+}
+
+.nav .w .dropdown dd a {
+    color: #fff;
+    font-size: 14px;
+}
+
+.nav .w .dropdown dd a::after {
+    content: '';
+    font-family: iconfont;
+    float: right;
+    transform: scale(0.5);
+}
+
+.nav .w .dropdown dd:hover {
+    background-color: #f7f7f7;
+    /* 让列表项右边移动两px */
+    transform: translateX(2px);
+}
+
+.nav .w .dropdown dd:hover a {
+    color: #ca2732;
+}
+
+.nav .w .nav_items {
+    margin-left: 30px;
+    height: 45px;
+    line-height: 45px;
+}
+
+.nav .w .nav_items li {
+    float: left;
+    margin: 0 24px;
+    font-size: 16px;
+}
+
+.nav .w .nav_items li a {
+    color: #333;
+}
+
+/*************** 4.主导航*******************/
+
+/*************** 5.主内容*******************/
+.main {
+    width: 980px;
+    margin: 10px 0 0 220px;
+}
+
+.main .sidebar .jdnews {
+    width: 250px;
+    height: 165px;
+    border: 1px solid #e4e4e4;
+}
+
+.main .sidebar .jdnews .hd {
+    padding: 0 16px;
+    border-bottom: 1px dotted #e8e8e8;
+    height: 33px;
+    line-height: 33px;
+}
+
+.main .sidebar .jdnews .hd h3 {
+    font-size: 14px;
+    color: #333;
+    font-weight: 500;
+}
+
+.main .sidebar .jdnews .hd a {
+    font-size: 14px;
+    color: #333;
+}
+
+.main .sidebar .jdnews .hd a::after {
+    content: '';
+    font-family: iconfont;
+}
+
+.main .sidebar .jdnews .bd {
+    padding: 2px 16px;
+}
+
+.main .sidebar .jdnews .bd li {
+    line-height: 25px;
+    height: 25px;
+    /* 超出显示文字.... */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* jdservices */
+.main .sidebar .jdservices {
+    width: 250px;
+    height: 207px;
+    border-left: 1px solid #e4e4e4;
+}
+
+.main .sidebar .jdservices li {
+    float: left;
+    width: 25%;
+    height: 69px;
+    border-right: 1px solid #e4e4e4;
+    border-bottom: 1px solid #e4e4e4;
+    text-align: center;
+}
+
+.main .sidebar .jdservices li i {
+    /* 独占一行 */
+    display: block;
+    width: 19px;
+    height: 24px;
+    margin: 13px auto 10px;
+    background: url(../images/icons.png) no-repeat -19px -16px;
+}
+
+.main .sidebar .botoom {
+    width: 250px;
+    height: 75px;
+    margin-top: 8px;
+}
+
+.main .sidebar .botoom img {
+    width: 100%;
+    height: 100%;
+}
+
+/*************** 5.主内容*******************/
+/*************** 6.今日推荐*******************/
+
+.recomend {
+    height: 163px;
+    margin-top: 10px;
+}
+
+.recomend .left {
+    width: 206px;
+    height: 163px;
+    text-align: center;
+    background-color: #5c5251;
+}
+
+.recomend .left img {
+    padding-top: 40px;
+}
+
+.recomend .right ul {
+    width: 994px;
+    height: 163px;
+}
+
+.recomend .right ul li {
+    /* 子绝父相 */
+    position: relative;
+    width: 25%;
+    float: left;
+}
+
+/* 设置前3个边线 */
+.recomend .right ul li:nth-child(-n+3)::after {
+    position: absolute;
+    content: '';
+    width: 1px;
+    height: 140px;
+    top: 10px;
+    right: 0;
+    background-color: #ddd;
+}
+
+.recomend .right ul li img {
+    width: 100%;
+    height: 100%;
+}
+
+
+/*************** 6.今日推荐*******************/
+
+
+/*************** 7.楼层*******************/
+
+.floor {
+    height: 475px;
+    margin-top: 29px;
+}
+
+.floor .hd {
+    height: 29px;
+    line-height: 27px;
+    border-bottom: 2px solid #c81623;
+}
+
+.floor .hd h2 {
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.floor .hd li {
+    float: left;
+
+}
+
+.floor .hd li:nth-child(-n+8)::after {
+    content: '|';
+}
+
+.floor .hd li a {
+    padding: 0 15px;
+}
+
+/* 楼层内容 */
+
+/* 第一列 */
+.floor .bd .col1 {
+    float: left;
+    width: 210px;
+    height: 360px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.floor .bd .col1 ul {
+    margin-left: 12px;
+}
+
+.floor .bd .col1 li {
+    float: left;
+    margin-right: 12px;
+    height: 33px;
+    line-height: 33px;
+    width: 86px;
+    border-bottom: 1px solid #ededed;
+}
+
+.floor .bd .col1 img {
+    margin-top: 26px;
+}
+
+/* 第二例 */
+.floor .bd .col2 {
+    float: left;
+    width: 329px;
+    height: 360px;
+    background-color: #c6e8b6;
+}
+
+.floor .bd .col2 img {
+    width: 100%;
+    height: 100%;
+}
+
+/* 后面几列 */
+.floor .bd .col {
+    height: 360px;
+    width: 220px;
+    float: left;
+    border-right: 1px solid #ededed;
+}
+
+
+
+.floor .bd .col img {
+    padding: 23px 0 0 19px;
+    width: 200px;
+    height: 155px;
+}
+
+.floor .bd .col img:first-child {
+    border-bottom: 1px solid #ededed;
+}
+
+.floor .bd .mid {
+    text-align: center;
+}
+
+.floor .bd .mid img:first-child {
+    width: 175px;
+    height: 234px;
+    margin-top: 62px;
+    border-bottom: none;
+    padding: 0;
+}
+
+.floor .ft {
+    height: 65px;
+    margin-top: 20px;
+}
+
+/*************** 7.楼层*******************/
+
+/*************** 8.浮动的楼层导航*******************/
+.float-nav {
+    position: fixed;
+    width: 66px;
+    top: 250px;
+    left: calc(50% - 600px - 66px - 20px);
+    height: 300px;
+    border: 1px solid blue;
+    /* border: 1px solid #b1191a; */
+}
+
+/*************** 8.浮动的楼层导航*******************/

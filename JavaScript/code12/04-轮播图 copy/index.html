@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+  <div class="banner-center">
+    <!-- 轮播项 -->
+    <div class="content">
+      <!-- 最后一个轮播项 -->
+      <div class="item">
+        <a href="#">
+          <img src="images/banner4.jpg">
+        </a>
+      </div>
+      <!-- 第一个轮播项 -->
+      <div class="item">
+        <a href="#">
+          <img src="images/banner1.jpg">
+        </a>
+      </div>
+      <div class="item">
+        <a href="#">
+          <img src="images/banner2.jpg">
+        </a>
+      </div>
+      <div class="item">
+        <a href="#">
+          <img src="images/banner3.jpg">
+        </a>
+      </div>
+      <div class="item">
+        <a href="#">
+          <img src="images/banner4.jpg">
+        </a>
+      </div>
+      <!-- 第一个轮播项 -->
+      <div class="item">
+        <a href="#">
+          <img src="images/banner1.jpg">
+        </a>
+      </div>
+    </div>
+    <!-- 左按钮 -->
+    <a class="btn btn-left" href="javascript:">&lt;</a>
+    <!-- 右按钮 -->
+    <a class="btn btn-right" href="javascript:">&gt;</a>
+    <!-- 一组小点按钮 -->
+    <ul class="controls">
+      <li class="active"></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+  <script>
+    // 1. 默认显示第一张图片
+    const bannerCenter = document.querySelector('.banner-center');
+    const content = document.querySelector('.content');
+    const controls = document.querySelector('.controls');
+
+    const imgWidth = bannerCenter.offsetWidth;
+
+    let index = 1;
+    content.style.transform = 'translateX(' + (-imgWidth * index) + 'px)';
+
+    // 防止意外
+    let isRunning = false;
+
+    // 2. 点击下一张
+    const btnRight = document.querySelector('.btn-right');
+    btnRight.onclick = function () {
+      if (isRunning) return;
+      controls.children[index - 1] && controls.children[index - 1].classList.remove('active');
+      index++;
+      content.style.transform = 'translateX(' + (-imgWidth * index) + 'px)';
+      content.style.transition = 'transform .5s';
+
+      // 让当前的li高亮显示
+      controls.children[index - 1] && controls.children[index - 1].classList.add('active');
+
+      // 如果是最后一个，让第一个高亮
+      if (index === controls.childElementCount + 1) {
+        controls.children[0].classList.add('active');
+      }
+    };
+
+    content.addEventListener('transitionstart', function () {
+      isRunning = true;
+    });
+
+    content.addEventListener('transitionend', function () {
+      isRunning = false;
+      // 判断如果index已经是最后一个，偷偷的移到第一个
+      if (index >= controls.childElementCount + 1) {
+        index = 1;
+        content.style.transform = 'translateX(' + (-imgWidth * index) + 'px)';
+        content.style.transition = 'none';
+      }
+
+      if (index === 0) {
+        index = controls.childElementCount;
+        content.style.transform = 'translateX(' + (-imgWidth * index) + 'px)';
+        content.style.transition = 'none';
+      }
+    });
+
+
+    // 上一张
+    const btnLeft = document.querySelector('.btn-left');
+    btnLeft.onclick = function () {
+      if (isRunning) return;
+      // 取消当前的li高亮
+      controls.children[index - 1] && controls.children[index - 1].classList.remove('active');
+      index--;
+      console.log(index)
+      content.style.transform = 'translateX(' + (-imgWidth * index) + 'px)';
+      content.style.transition = 'transform .5s';
+
+
+      controls.children[index - 1] && controls.children[index - 1].classList.add('active');
+      if (index === 0) {
+        controls.children[controls.childElementCount - 1].classList.add('active');
+      }
+    };
+
+
+    let timerId = setInterval(function () {
+      btnRight.click();
+    }, 2000);
+
+    bannerCenter.onmouseover = function () {
+      clearInterval(timerId);
+    };
+
+    bannerCenter.onmouseout = function () {
+      timerId = setInterval(function () {
+        btnRight.click();
+      }, 2000);
+    };
+  </script>
+
+</body>
+
+</html>

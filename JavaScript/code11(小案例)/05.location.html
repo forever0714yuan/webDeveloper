@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>location</title>
+</head>
+<body>
+    <button id="btn">登录</button>
+    <img src="./images/tip1_h.gif" alt="">
+    <script>
+        const btn = document.querySelector('#btn');
+
+        btn.onclick = function () {
+            // location 也是 window 对象下的属性，同时也是一个对象
+            // console.log(window.location);
+
+            // href 是 location 的属性，可以获取浏览器地址栏中的内容，也可以设置浏览器地址栏
+            // http://127.0.0.1:52388/code/05.location.html
+            // console.log(location.href);
+            // location.href = 'https://www.baidu.com'
+
+            // 重新加载网页,刷新f5
+            // location.reload()
+
+            // true 不加载缓存
+            // 相当于在浏览器中使用硬性重新加载，不读缓存
+            location.reload(true)
+        }
+    </script>
+</body>
+</html>
