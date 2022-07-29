@@ -1,6 +1,6 @@
 <template>
     <div class="product">
-        <van-nav-bar title="商品详情" @click-left="router.back()" left-arrow>
+        <van-nav-bar fixed title="商品详情" @click-left="router.back()" left-arrow>
             <template #right>
                 <van-icon name="ellipsis" size="18" />
             </template>
@@ -28,6 +28,9 @@
                 </div>
             </div>
         </div>
+        <!-- <div class="action-bar">
+
+        </div> -->
         <van-action-bar>
             <van-action-bar-icon icon="chat-o" text="客服" />
             <van-action-bar-icon icon="cart-o" to="/cart" text="购物车" />
@@ -75,6 +78,8 @@ div {
 }
 
 .detail {
+    margin-top: 46px;
+
     .product-info {
         padding: 18px 10px 0;
 
@@ -126,5 +131,9 @@ div {
             }
         }
     }
+}
+
+.action-bar {
+    height: 50px;
 }
 </style>

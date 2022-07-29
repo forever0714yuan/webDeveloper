@@ -125,40 +125,8 @@
         </div>
       </div>
     </section>
-    <van-tabbar v-model="active">
-      <van-tabbar-item icon="home-o">
-        <template #icon>
-          <i class="iconfont miconxuanzhongshangcheng"></i>
-        </template>
-        <span>
-          <router-link to="/">首页</router-link>
-        </span>
-      </van-tabbar-item>
-      <van-tabbar-item icon="search">
-        <template #icon>
-          <i class="iconfont miconsort"></i>
-        </template>
-        <span>
-          <router-link to="/category">分类</router-link>
-        </span>
-      </van-tabbar-item>
-      <van-tabbar-item icon="friends-o" badge="0">
-        <template #icon>
-          <i class="iconfont miconFontAwesomecartarrowdown"></i>
-        </template>
-        <span>
-          <router-link to="/cart">购物车</router-link>
-        </span>
-      </van-tabbar-item>
-      <van-tabbar-item icon="setting-o">
-        <template #icon>
-          <i class="iconfont miconMyInformation"></i>
-        </template>
-        <span>
-          <router-link to="/user">我的</router-link>
-        </span>
-      </van-tabbar-item>
-    </van-tabbar>
+
+    <Tabber></Tabber>
   </div>
 </template>
 
@@ -166,6 +134,8 @@
 import { ref } from 'vue';
 import { useRouter } from 'vue-router'
 import { reqHome } from '@/api';
+import Tabber from '@/components/Tabber.vue';
+
 const router = useRouter()
 // 滑块的图片
 const images = ref([]);
@@ -215,7 +185,7 @@ const handleTo = (hot) => {
     height: 50px;
     line-height: 50px;
     padding: 0 15PX;
-    background-color: transparent;
+    background-color: #c82519;
 
     .more {
       width: 22PX;
@@ -283,7 +253,7 @@ const handleTo = (hot) => {
 
     .swiper {
       position: relative;
-      margin: 50px 18.75px 0;
+      margin: 60px 18.75px 0;
       width: 337.5px;
       border-radius: 10px;
       overflow: hidden;

@@ -9,5 +9,11 @@ export const reqHome = (url) => (http.get(url));
 export const reqProductDetail = (url) => (http.get(url));
 // 获取商品列表
 export const reqProductList = (url) => (http.get(url));
+// 修改商品数量
+export const reqProductCount = (url, option) => (http.put(url, option));
+// 获取分类数据
+export const reqCategory = (url) => (http.get(url));
+// 获取用户信息
+export const reqUser = (url) => (http.get(url));
 
 
