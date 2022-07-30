@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { reqProductList, reqProductCount } from '../api/index'
+import { reqCartList, reqProductCount, reqAddCart, reqUploadCart, reqDeleteCart } from '../api/index'
 import { getStore } from '../utils/storage';
 import { Toast } from 'vant';
 
@@ -18,7 +18,7 @@ export const useCartStore = defineStore({
     },
     // 获取数量
     getCountNum() {
-      return this.cart.length;
+      return this.cart?.length;
     }
   },
   actions: {
@@ -26,10 +26,30 @@ export const useCartStore = defineStore({
     addCart(product) {
       console.log(product);
       // 判断购物车中 是否有当前商品
+      const cartPro = this.cart.find(p => p.goodsId === product.goodsId);
+
+      if (cartPro) {
+        // 有记录 增加数量
+        console.log(cartPro);
+        if (cartPro.goodsCount > 5) {
+          return Toast.fail('添加数量不能大于5个哦');
+        }
+
+        reqUploadCart('/shop-cart', {
+          cartItemId: cartPro.cartItemId,
+          goodsCount: cartPro.goodsCount++
+        })
+      } else {
+        // 没有记录  添加
+        reqAddCart('/shop-cart', {
+          goodsCount: 1,
+          goodsId: product.goodsId
+        })
+      }
     },
     // 获取数据
     async loadCart() {
-      const res = await reqProductList('/shop-cart')
+      const res = await reqCartList('/shop-cart')
       // console.log(res);
       this.cart = res.data.data
     },
@@ -45,8 +65,8 @@ export const useCartStore = defineStore({
 
       // 发送请求
       const res = await reqProductCount('/shop-cart', {
-        "cartItemId": details.name,
-        "goodsCount": value
+        cartItemId: details.name,
+        goodsCount: value
       })
       // console.log(res);
       // const { message, resultCode } = res.data;
@@ -54,6 +74,16 @@ export const useCartStore = defineStore({
       //   Toast.fail(message);
       //   this.loadCart()
       // }
+    },
+    // 删除购物车列表项
+    async handleDelete(gooddItem) {
+      // console.log(gooddItem);
+      const res = await reqDeleteCart(`/shop-cart/${gooddItem.goodsId}`);
+      console.log(res);
+      const { resultCode } = res.data;
+      if (resultCode === 200) {
+        Toast.success('删除成功')
+      }
     }
   }
 })

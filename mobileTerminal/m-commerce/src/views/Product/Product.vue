@@ -57,7 +57,7 @@ const productDetail = ref({})
 const loadData = async () => {
     const id = route.params.id;
     const res = await reqProductDetail(`/goods/detail/${id}`);
-    console.log(res.data);
+    // console.log(res.data);
     const { data, resultCode } = res.data
     if (resultCode === 200) {
         productDetail.value = data;
@@ -65,7 +65,6 @@ const loadData = async () => {
 };
 
 loadData()
-// console.log(productDetail);
 </script>
 
 <style lang="less" scoped>
